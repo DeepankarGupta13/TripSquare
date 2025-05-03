@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaEnvelope, FaPhone } from 'react-icons/fa';
 import '../styles/Footer.css';
+import { assets } from '../assets/assets.js'
 
 const Footer = () => {
   return (
@@ -20,11 +21,11 @@ const Footer = () => {
           <div className="contact-info">
             <div className="contact-item">
               <FaEnvelope className="contact-icon" />
-              <span>abc@tripsquares.com</span>
+              <span>{assets.email}</span>
             </div>
             <div className="contact-item">
               <FaPhone className="contact-icon" />
-              <span>98xxxxxx67</span>
+              <span>{assets.phoneNumber}</span>
             </div>
           </div>
         </div>
@@ -32,13 +33,13 @@ const Footer = () => {
         <div className="footer-section social">
           <h3 className="footer-title">Follow us</h3>
           <div className="social-icons">
-            <a href="#" className="social-link">
+            <a href={assets.facebookLink} className="social-link">
               <FaFacebook className="social-icon" />
             </a>
-            <a href="#" className="social-link">
+            <a href={assets.instagramLink} className="social-link">
               <FaInstagram className="social-icon" />
             </a>
-            <a href="#" className="social-link">
+            <a href={assets.twitterLink} className="social-link">
               <FaTwitter className="social-icon" />
             </a>
           </div>

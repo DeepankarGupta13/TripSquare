@@ -12,6 +12,9 @@ export const assets = {
     videoLink: video,
     map: map,
     location: location,
+    facebookLink: '',
+    instagramLink: '',
+    twitterLink: '',
 }
 
 export const assetsList = [
