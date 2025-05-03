@@ -88,9 +88,12 @@
 .location-name {
     font-size: x-small;
     position: relative;
-    color: black;
+    color: #fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     opacity: 0;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
     margin: 0px;
-    padding: 0px;
+    padding: 1px;
+    background-color: green;
+    border-radius: 2px;
 }
