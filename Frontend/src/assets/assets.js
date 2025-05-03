@@ -23,37 +23,37 @@ export const assetsList = [
     },
     {
         name: 'ggwp',
-        id: 0,
+        id: 1,
         price: 20000,
         duration: '2N/1D'
     },
     {
         name: 'ggwp',
-        id: 0,
+        id: 2,
         price: 20000,
         duration: '2N/1D'
     },
     {
         name: 'ggwp',
-        id: 0,
+        id: 3,
         price: 20000,
         duration: '2N/1D'
     },
     {
         name: 'ggwp',
-        id: 0,
+        id: 4,
         price: 20000,
         duration: '2N/1D'
     },
     {
         name: 'ggwp',
-        id: 0,
+        id: 5,
         price: 20000,
         duration: '2N/1D'
     },
     {
         name: 'ggwp',
-        id: 0,
+        id: 6,
         price: 20000,
         duration: '2N/1D'
     },

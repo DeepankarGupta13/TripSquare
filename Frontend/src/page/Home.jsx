@@ -5,6 +5,8 @@ import Map from '../components/map'
 import Footer from '../components/Footer'
 import '../styles/Home.css'
 import HorizontalSlider from '../components/Slider'
+import DestinationSlider from '../components/DestinationSlider'
+import AdventurePoster from '../components/AdventurePoster'
 
 const Home = () => {
   return (
@@ -19,7 +21,12 @@ const Home = () => {
       <div className='span'>
         <p className='Title-text black-text'>Top Destinations</p>
       </div>
-      <HorizontalSlider/>
+      <p className='heading2 black-text'>Explore South</p>
+      <HorizontalSlider filter={'south'}/>
+      <p className='heading2 black-text'>Explore North</p>
+      <HorizontalSlider className="span" filter={'north'}/>
+      <DestinationSlider/>
+      <AdventurePoster/>
       <Footer />
     </div>
   )
