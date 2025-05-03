@@ -1,0 +1,32 @@
+.Text-Conatiner {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20vh;
+    max-width: 40vw;
+    gap: 5vh;
+    margin-left: 5vw;
+}
+
+.Title-text {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3rem;
+    color: antiquewhite;
+    font-weight: 500;
+}
+
+.Description-text {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: aliceblue;
+    font-weight: 100;
+}
+
+.span {
+    margin-left: 5vw;
+    margin-top: 5vh;
+}
+
+.black-text {
+    color: black;
+}

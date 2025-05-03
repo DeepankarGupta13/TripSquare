@@ -1,0 +1,9 @@
+export const MEGHALAYA_ID = 'Meghalaya';
+export const SIKKIM_ID = 'Sikkim';
+export const MANALI_ID = 'Manali';
+export const KASHMIR_ID = 'Kashmir';
+export const OOTY_ID = 'Ooty';
+export const COORG_ID = 'Coorg';
+export const KOCHI_ID = 'Kochi';
+export const CHIKMAGALUR_ID = 'Chikmagalur';
+export const PONDICHERRY_ID = 'Pondicherry';
