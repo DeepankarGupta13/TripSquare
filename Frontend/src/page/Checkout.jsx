@@ -1,19 +1,9 @@
-// import React from 'react'
-
-// const Checkout = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-// export default Checkout
-
 import React, { useState } from 'react';
 import '../styles/Checkout.css';
+import { useLocation } from 'react-router-dom';
 
 const Checkout = () => {
+  const { state } = useLocation();
   const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
 
   const handleProceedToPay = () => {

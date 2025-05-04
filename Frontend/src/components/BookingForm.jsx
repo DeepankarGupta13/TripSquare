@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/BookingForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import {useNavigate} from 'react-router-dom'
 
 const BookingForm = ({ basePrice = 5999 }) => {
     const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const BookingForm = ({ basePrice = 5999 }) => {
         travelers: 1,
         agreeTerms: false
     });
+    const navigate = useNavigate();
 
     // Filter function to only allow Saturdays
     const isSaturday = (date) => {
@@ -30,6 +32,7 @@ const BookingForm = ({ basePrice = 5999 }) => {
         e.preventDefault();
         // Handle form submission
         console.log(formData);
+        navigate('/checkout', { state: formData });
         // You can pass this to parent via props if needed
     };
 
@@ -75,7 +78,7 @@ const BookingForm = ({ basePrice = 5999 }) => {
                             const year = date.getFullYear();
                             const month = String(date.getMonth() + 1).padStart(2, '0');
                             const day = String(date.getDate()).padStart(2, '0');
-                            const dateString = `${day}-${month}-${year}`;
+                            const dateString = `${year}-${month}-${day}`;
                             setFormData(prev => ({
                                 ...prev,
                                 travelDate: dateString
@@ -84,7 +87,7 @@ const BookingForm = ({ basePrice = 5999 }) => {
                         filterDate={isSaturday}
                         minDate={new Date()}
                         placeholderText="Select Date"
-                        dateFormat="dd-MM-yyyy"
+                        dateFormat="yyyy-MM-dd"
                         required
                     />
                 </div>
