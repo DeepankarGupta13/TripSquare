@@ -1,0 +1,12 @@
+.main-content {
+    display: flex;
+    margin: 2% 5vw;
+    height: auto;
+    gap: 1vw;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+}
