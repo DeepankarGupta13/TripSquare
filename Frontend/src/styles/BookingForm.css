@@ -1,13 +1,12 @@
 .booking-form-container {
-    width: auto;
-    background-color: #f8f9fa;
-    border-left: 1px solid #ddd;
+    width: 25vw;
     border-radius: 20px;
     position: sticky;
     top: 0;
     align-self: flex-start;
-    height: 100vh;
     overflow-y: hidden;
+    padding: 1.5rem;
+    background-color: #f2f4ee;
 }
 
 .booking-form {
@@ -38,7 +37,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
-    width: 15vw;
+    width: 20vw;
 }
 
 .price-display {
@@ -87,7 +86,7 @@
     background-color: #0AA84E;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments
 @media (max-width: 1024px) {
     .booking-form-container {
         position: static;
@@ -95,11 +94,12 @@
         border-left: none;
         border-top: 1px solid #ddd;
     }
-}
+} */
 
 @media (max-width: 768px) {
     .booking-form-container {
         padding: 3rem;
+        width: auto;
     }
 
     .form-group input {

@@ -113,8 +113,8 @@ const Trip = () => {
           <BookingForm item={tripData} />
         </div>
       </div>
-      {/* <PatternGrid images={tripData.images} />
-      <ReviewCards reviews={tripData.reviews} /> */}
+      <PatternGrid images={tripData.images} />
+      {/* <ReviewCards reviews={tripData.reviews} /> */}
       <div className='span' style={{ marginTop: '50px' }}>
         <p className='span Title-text' style={{color: 'black'}}>Popular Destinations</p>
       </div>
