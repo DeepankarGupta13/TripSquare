@@ -7,7 +7,6 @@ import BookingForm from '../components/BookingForm';
 import '../styles/Trip.css';
 // import EnquiryForm from '../components/EnquiryForm';
 import PatternGrid from '../components/PatternGrid';
-// import ReviewCards from '../components/ReviewCards';
 import HorizontalSlider from '../components/Slider';
 import Footer from '../components/Footer';
 import PickupDrop from '../components/PickupDrop';
@@ -114,7 +113,7 @@ const Trip = () => {
         </div>
       </div>
       <PatternGrid images={tripData.images} />
-      {/* <ReviewCards reviews={tripData.reviews} /> */}
+      <ReviewCards reviews={tripData.reviews} />
       <div className='span' style={{ marginTop: '50px' }}>
         <p className='span Title-text' style={{color: 'black'}}>Popular Destinations</p>
       </div>

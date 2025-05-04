@@ -1,12 +1,18 @@
 /* ReviewCards.css */
 .reviews-container {
-    width: 100%;
+    width: auto;
     max-height: 600px;
     /* Adjust based on your needs */
     overflow-y: auto;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
+    margin: 2% 5vw;
+}
+
+.reviews-container.collapsed {
+    max-height: 0;
+    opacity: 0;
 }
 
 .reviews-grid {

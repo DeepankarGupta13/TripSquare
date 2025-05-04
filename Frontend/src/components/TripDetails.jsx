@@ -34,7 +34,6 @@ const TripDetails = ({ tripData }) => {
     return (
         <div className="trip-details-container">
             {/* Menu Bar */}
-            <div ref={overviewRef}> </div>
             <div className="menu-bar">
                 <button onClick={() => scrollToSection(overviewRef)}>Overview</button>
                 <button onClick={() => scrollToSection(itineraryRef)}>Itinerary</button>
@@ -44,24 +43,26 @@ const TripDetails = ({ tripData }) => {
             </div>
 
             {/* Scrollable Content Container */}
-            <div className="content-container">
-                {/* Overview Section */}
-                <div className="section">
-                    <h2>Overview & Highlights</h2>
-                    <div className="content">
-                        <p className="description-text">
-                            {showFullDescription ? tripData.description : getShortDescription(tripData.description)}
-                            {tripData.description.split(' ').length > 20 && (
-                                <button
-                                    onClick={toggleDescription}
-                                    className="read-more-btn"
-                                >
-                                    {showFullDescription ? 'Read Less' : 'Read More'}
-                                </button>
-                            )}
-                        </p>
+            <div ref={overviewRef}>
+                <div className="content-container">
+                    {/* Overview Section */}
+                    <div className="section">
+                        <h2>Overview & Highlights</h2>
+                        <div className="content">
+                            <p className="description-text">
+                                {showFullDescription ? tripData.description : getShortDescription(tripData.description)}
+                                {tripData.description.split(' ').length > 20 && (
+                                    <button
+                                        onClick={toggleDescription}
+                                        className="read-more-btn"
+                                    >
+                                        {showFullDescription ? 'Read Less' : 'Read More'}
+                                    </button>
+                                )}
+                            </p>
+                        </div>
+                        <div ref={itineraryRef} style={{ margin: '10px', height: '50px' }}> </div>
                     </div>
-                <div ref={itineraryRef} style={{ margin: '10px', height: '50px' }}> </div>
                 </div>
 
                 {/* Itinerary Section */}
@@ -94,7 +95,7 @@ const TripDetails = ({ tripData }) => {
                             ))}
                         </div>
                     </div>
-                <div ref={inclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
+                    <div ref={inclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
                 </div>
 
                 {/* Other sections remain the same */}
@@ -107,7 +108,7 @@ const TripDetails = ({ tripData }) => {
                             ))}
                         </ul>
                     </div>
-                <div ref={exclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
+                    <div ref={exclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
                 </div>
 
                 <div className="section">
@@ -119,7 +120,7 @@ const TripDetails = ({ tripData }) => {
                             ))}
                         </ul>
                     </div>
-                <div ref={otherInfoRef} style={{ margin: '10px', height: '60px' }}> </div>
+                    <div ref={otherInfoRef} style={{ margin: '10px', height: '60px' }}> </div>
                 </div>
 
                 <div className="section">

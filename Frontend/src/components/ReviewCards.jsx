@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/ReviewCards.css';
 
 const ReviewCards = () => {
-  // Sample review data with varying content lengths
+  const [isReviewsExpanded, setIsReviewsExpanded] = useState(true);
+
+  const toggleReviews = () => {
+    setIsReviewsExpanded(!isReviewsExpanded);
+  };
+
   const reviews = [
     {
       id: 1,
@@ -57,18 +62,26 @@ const ReviewCards = () => {
   };
 
   return (
-    <div className="reviews-container">
-      <div className="reviews-grid">
-        {reviews.map((review) => (
-          <div key={review.id} className="review-card">
-            <div className="review-header">
-              <h3 className="reviewer-name">{review.name}</h3>
-              {renderStars(review.rating)}
+    <div className="reviews-section">
+      <div className='Title-Div'>
+        <h1>Reviews</h1>
+        <h2 className='Button-tripSquare' onClick={toggleReviews}>
+          {!isReviewsExpanded ? 'Show' : 'Hide'}
+        </h2>
+      </div>
+      <div className={`reviews-container ${!isReviewsExpanded ? 'collapsed' : ''}`}>
+        <div className="reviews-grid">
+          {reviews.map((review) => (
+            <div key={review.id} className="review-card">
+              <div className="review-header">
+                <h3 className="reviewer-name">{review.name}</h3>
+                {renderStars(review.rating)}
+              </div>
+              <div className="divider">* * * *</div>
+              <p className="review-content">{review.content}</p>
             </div>
-            <div className="divider">* * * *</div>
-            <p className="review-content">{review.content}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
