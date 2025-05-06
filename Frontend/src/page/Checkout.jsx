@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 const Checkout = () => {
   const { state } = useLocation();
+  console.log('state: ', state);
   const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
 
   const handleProceedToPay = () => {
