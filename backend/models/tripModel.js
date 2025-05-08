@@ -23,7 +23,7 @@ const tripSchema = new mongoose.Schema({
         comment: { type: String, required: true }
     }],
     topFlag: { type: Boolean, required: true, default: false },
-    recommendedSeason: { type: [String], required: true, enum: ['winter', 'summer', 'monsoon'] },
+    recommendedSeason: { type: [String], required: true, enum: ['Summer', 'Winter', 'Monsoon'] },
 }, { timestamps: true });
 
 const tripModel = mongoose.models.Trip || mongoose.model("Trip", tripSchema);

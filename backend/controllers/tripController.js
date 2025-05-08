@@ -24,9 +24,6 @@ const addTrip = async (req, res) => {
             })
         )
 
-        console.log('name, description, price, itinerary, inclusion, exclusion, otherDetails, reviews, topFlag, recommendedSeason: ', name, description, price, itinerary, inclusion, exclusion, otherDetails, reviews, topFlag, recommendedSeason);
-        console.log('image1: ', imageUrl);
-
         const tripData = {
             name,
             description,
@@ -44,7 +41,6 @@ const addTrip = async (req, res) => {
             topFlag: topFlag === 'true' ? true : false,
             recommendedSeason: JSON.parse(recommendedSeason),
         }
-        console.log('tripData: ', tripData);
 
         const trip = new tripModel(tripData);
         await trip.save()
