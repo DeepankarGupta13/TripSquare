@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import '../styles/Checkout.css';
 import { useLocation } from 'react-router-dom';
 
+const gstPercent = 0.05;
+
 const Checkout = () => {
   const { state } = useLocation();
-  console.log('state: ', state);
+  const tripData = state.trip;
+
+  const totalPrice = tripData.price * parseInt(state.travellers);
+  const withoutDiscount = parseFloat((totalPrice * (1.4)).toFixed(2));
+  const afterGst = parseFloat((totalPrice*gstPercent).toFixed(2));
+  
   const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
 
   const handleProceedToPay = () => {
@@ -23,17 +30,17 @@ const Checkout = () => {
   return (
     <div className="checkout-container">
       <div className="navigation-links">
-        <a href="/">Back to HomePage</a> &gt; <a href="/trip">Back to Trip Page</a>
+        <a href="/">Back to HomePage</a> &gt; <a href={`/trip/${tripData._id}`}>Back to Trip Page</a>
       </div>
 
       <h2>Checkout</h2>
 
       <div className="trip-details">
-        <h3>Meghalaya 7 Day Road Trip</h3>
-        <p>10 Travellers</p>
+        <h3>{tripData.name}</h3>
+        <p>{state.travellers} Travellers</p>
         <div className="price-section">
-          <span className="current-price">49,999/-</span>
-          <span className="original-price">69,999/-</span>
+          <span className="current-price">{totalPrice}/-</span>
+          <span className="original-price">{withoutDiscount}/-</span>
         </div>
       </div>
 
@@ -45,19 +52,19 @@ const Checkout = () => {
           <tbody>
             <tr>
               <td>Total MRP Amount :</td>
-              <td>69,999/-</td>
+              <td>{totalPrice}/-</td>
             </tr>
             <tr>
               <td>Discount on MRP :</td>
-              <td>20,000/-</td>
+              <td>{(withoutDiscount - totalPrice).toFixed(2)}/-</td>
             </tr>
             <tr>
               <td>Applicable GST :</td>
-              <td>8,998/-</td>
+              <td>{afterGst}/-</td>
             </tr>
             <tr className="total-row">
               <td><strong>Total:</strong></td>
-              <td><strong>58,997/-</strong></td>
+              <td><strong>{(afterGst + totalPrice)}/-</strong></td>
             </tr>
           </tbody>
         </table>

@@ -11,8 +11,9 @@ const BookingForm = ({ item }) => {
         email: '',
         phone: '',
         travelDate: '',
-        travelers: 1,
-        agreeTerms: false
+        travellers: 1,
+        agreeTerms: false,
+        trip: item,
     });
     const navigate = useNavigate();
 
@@ -93,19 +94,19 @@ const BookingForm = ({ item }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Travelers</label>
+                    <label>Travellers</label>
                     <input
                         type="number"
-                        name="travelers"
+                        name="travellers"
                         min="1"
-                        value={formData.travelers}
+                        value={formData.travellers}
                         onChange={handleChange}
                     />
-                    <span className="price-display">{formData.travelers} x ₹{basePrice}/-</span>
+                    <span className="price-display">{formData.travellers} x ₹{basePrice}/-</span>
                 </div>
                 <div className="form-group total-amount">
                     <label>Total Amount:</label>
-                    <span>₹{formData.travelers * basePrice}/-</span>
+                    <span>₹{formData.travellers * basePrice}/-</span>
                 </div>
                 <div className="form-group checkbox-group">
                     <input
