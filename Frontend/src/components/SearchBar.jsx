@@ -1,49 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/SearchBar.css'; // We'll create this CSS file next
 import { assets } from '../assets/assets';
+import { useNavigate } from 'react-router-dom';
+import { useApi } from '../context/ApiContext';
 
 const SearchBar = () => {
+  const navigate = useNavigate();
+  const { getTrips } = useApi(); // Get the API methods from context
+  const [trips, setTrips] = useState([]); // State to store trips
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // Sample list of items (replace with your actual data)
-  const itemList = [
-    "Adventure Tours",
-    "Beach Holidays",
-    "City Breaks",
-    "Desert Safaris",
-    "European Getaways",
-    "Family Vacations",
-    "Golf Retreats",
-    "Hiking Expeditions",
-    "Island Hopping",
-    "Jungle Adventures",
-    "Luxury Cruises",
-    "Mountain Climbing",
-    "Northern Lights",
-    "Outdoor Camping",
-    "Pilgrimage Tours",
-    "Quaint Villages",
-    "Road Trips",
-    "Skiing Holidays",
-    "Trekking Packages",
-    "Urban Explorations",
-    "Vineyard Tours",
-    "Wildlife Safaris",
-    "Yoga Retreats",
-    "Zen Gardens"
-  ];
+  useEffect(() => {
+    const fetchTrips = async () => {
+      try {
+        let tripsData = await getTrips();
+        setTrips(tripsData)
+      } catch (err) {
+        console.error('err: ', err);
+      }
+    };
 
+    fetchTrips();
+  }, [getTrips])
+  
   useEffect(() => {
     if (searchQuery.trim() === '') {
       setSuggestions([]);
       return;
     }
 
-    const matchedItems = itemList.filter(item =>
-      item.toLowerCase().includes(searchQuery.toLowerCase()))
-        .slice(0, 5); // Show top 5 matches
+    const matchedItems = trips.filter(item =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      .slice(0, 5); // Show top 5 matches
 
     setSuggestions(matchedItems);
   }, [searchQuery]);
@@ -54,8 +44,9 @@ const SearchBar = () => {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setSearchQuery(suggestion);
+    setSearchQuery(suggestion.name);
     setShowSuggestions(false);
+    navigate(`/trip/${suggestion._id}`)
     // Perform search or other action here
   };
 
@@ -63,7 +54,10 @@ const SearchBar = () => {
     e.preventDefault();
     if (searchQuery.trim()) {
       // Perform search action
-      console.log("Searching for:", searchQuery);
+      const matchedItems = trips.filter(item =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        .slice(0, 5); // Show top 5 matches
+      navigate(`/trip/${matchedItems[0]._id}`)
       setShowSuggestions(false);
     }
   };
@@ -89,20 +83,20 @@ const SearchBar = () => {
           </div>
         </div>
         <div className='suggestions-container'>
-            {showSuggestions && suggestions.length > 0 && (
-              <ul className="suggestions-dropdown">
-                {suggestions.map((item, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleSuggestionClick(item)}
-                    className="suggestion-item"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          {showSuggestions && suggestions.length > 0 && (
+            <ul className="suggestions-dropdown">
+              {suggestions.map((item, index) => (
+                <li
+                  key={index}
+                  onClick = {() => handleSuggestionClick(item)}
+                  className="suggestion-item"
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </form>
     </div>
   );

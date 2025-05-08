@@ -4,7 +4,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {useNavigate} from 'react-router-dom'
 
-const BookingForm = ({ basePrice = 5999 }) => {
+const BookingForm = ({ item }) => {
+    const basePrice = item.price;
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',

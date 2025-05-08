@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import '../styles/PickupDrop.css';
 import { assets } from '../assets/assets';
 
-const PickupDrop = () => {
-  const pickup = 'Guwahati';
-  const drop = 'Guwahati';
-  const duration = '5D/6N';
+const PickupDrop = ({tripData}) => {
+  const pickup = tripData.pickUp;
+  const drop = tripData.drop;
+  const duration = tripData.duration;
 
   return (
     <>

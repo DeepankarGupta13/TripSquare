@@ -11,10 +11,9 @@ import HorizontalSlider from '../components/Slider';
 import Footer from '../components/Footer';
 import PickupDrop from '../components/PickupDrop';
 import ContactStickyButton from '../components/ContactStickyButton';
-// import { useApi } from '../../context/ApiContext';
+import { useApi } from '../context/ApiContext';
 // import { assets } from '../assets/assets';
 import Map from '../components/map';
-import { assetsList } from '../assets/assets';
 import Video from '../components/Video';
 import ReviewCards from '../components/ReviewCards';
 
@@ -23,25 +22,24 @@ const Trip = () => {
   const [tripData, setTripData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { getTrips } = useApi(); // Get the API method
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+
     const fetchTripData = async () => {
       try {
         setLoading(true);
         setError(null);
-        
+
         // Add a small delay to ensure the API is ready (if needed)
-        const trips = assetsList; // Fix the typo here if it's getTrips vs getTrips
-        
-        console.log('trips: ', trips);
-        
+        const trips = await getTrips(); // Fix the typo here if it's getTrips vs getTrips
+
         if (!trips || !Array.isArray(trips)) {
           throw new Error('Invalid trips data received');
         }
 
-        const foundTrip = trips.find(trip => trip.id === parseInt(tripId));
+        const foundTrip = trips.find(trip => trip._id === tripId);
         if (!foundTrip) {
           throw new Error('Trip not found');
         }
@@ -56,7 +54,7 @@ const Trip = () => {
     };
 
     fetchTripData();
-  }, []); // Added tripId to dependencies
+  }, [tripId]); // Added tripId to dependencies
 
   if (loading) {
     return (
@@ -98,10 +96,10 @@ const Trip = () => {
         <p className='Description-text'>Pack Your Bags & Your Dreams!</p>
         <p className='Description-text'>TripSquare Makes Travel Affordable & Amazing</p>
         <div className='Details-Trip'>
-          <PickupDrop />
+          <PickupDrop tripData={tripData} />
         </div>
       </div>
-      <Map trips={tripData}/>
+      <Map trips={tripData} />
       <div className='span'>
         <h1 className='top-places-title'>{tripData.name}</h1>
       </div>
@@ -115,16 +113,16 @@ const Trip = () => {
       <PatternGrid images={tripData.images} />
       <ReviewCards reviews={tripData.reviews} />
       <div className='span' style={{ marginTop: '50px' }}>
-        <p className='span Title-text' style={{color: 'black'}}>Popular Destinations</p>
+        <p className='span Title-text' style={{ color: 'black' }}>Popular Destinations</p>
       </div>
-      <HorizontalSlider type="top" />
+      <HorizontalSlider />
       <Footer />
-  </div>
-)
+    </div>
+  )
 
-// return (
-//   <div></div>
-// )
+  // return (
+  //   <div></div>
+  // )
 }
 
 export default Trip

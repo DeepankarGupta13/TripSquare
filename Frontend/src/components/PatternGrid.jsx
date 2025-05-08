@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/PatternGrid.css';
 
-const PatternGrid = () => {
+const PatternGrid = ({images}) => {
   const [expandedGroups, setExpandedGroups] = useState([]);
   const [isScrollerExpanded, setIsScrollerExpanded] = useState(true); // Add this state
 
@@ -18,18 +18,7 @@ const PatternGrid = () => {
   };
 
   // Single list of images
-  const allImages = [
-    'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1429087969512-1e85aab2683d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1429087969512-1e85aab2683d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-  ];
+  const allImages = images;
 
   // Group images into sets of 5 (1 big + 4 small)
   const createImageGroups = () => {

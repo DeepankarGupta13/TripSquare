@@ -3,6 +3,8 @@ import { assets } from '../assets/assets'
 import '../styles/Map.css'
 import { useNavigate } from 'react-router-dom';
 import * as constants from '../utils/constants';
+import { useApi } from '../context/ApiContext';
+import { toast } from 'react-toastify';
 
 const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState({
@@ -26,12 +28,29 @@ const useWindowSize = () => {
 const Map = () => {
     const navigate = useNavigate();
     const { width } = useWindowSize();
+    const { getTrips } = useApi(); // Get the API methods from context
+    const [trips, setTrips] = useState([]); // State to store trips
 
-    const handleClick = (id) => {
-        return () => {
-            console.log('id: ', id);
-            navigate(`/trip/${id}`);
+    useEffect(() => {
+        const fetchTrips = async () => {
+            try {
+                let tripsData = await getTrips();
+                setTrips(tripsData);
+            } catch (err) {
+                console.log('err: ', err);
+            }
         };
+        fetchTrips();
+    }, [getTrips])
+
+    const handleClick = (name) => {
+        const trip = trips.find(item => item.name.toLowerCase().includes(name.toLowerCase()))
+        if (trip && trip._id) {
+            navigate(`/trip/${trip._id}`);
+        }
+        else {
+            toast.error("Trip coming Soon!!! Please stay tuned.")
+        }
     }
 
     if (width < 800) {
@@ -43,39 +62,39 @@ const Map = () => {
             <div className='map-container'>
                 <img src={assets.map} alt="" />
             </div>
-            <div className='pin map-location' onClick={handleClick(constants.MEGHALAYA_ID)}>
+            <div className='pin map-location' onClick={() => handleClick(constants.MEGHALAYA_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Meghalaya</p>
             </div>
-            <div className='pin map-location1' onClick={handleClick(constants.MANALI_ID)}>
+            <div className='pin map-location1' onClick={() => handleClick(constants.MANALI_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Manali</p>
             </div>
-            <div className='pin map-location2' onClick={handleClick(constants.SIKKIM_ID)}>
+            <div className='pin map-location2' onClick={() => handleClick(constants.SIKKIM_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Sikkim</p>
             </div>
-            <div className='pin map-location3' onClick={handleClick(constants.OOTY_ID)}>
+            <div className='pin map-location3' onClick={() => handleClick(constants.OOTY_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Ooty</p>
             </div>
-            <div className='pin map-location4' onClick={handleClick(constants.COORG_ID)}>
+            <div className='pin map-location4' onClick={() => handleClick(constants.COORG_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Coorg</p>
             </div>
-            <div className='pin map-location5' onClick={handleClick(constants.KOCHI_ID)}>
+            <div className='pin map-location5' onClick={() => handleClick(constants.KOCHI_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Kochi</p>
             </div>
-            <div className='pin map-location6' onClick={handleClick(constants.CHIKMAGALUR_ID)}>
+            <div className='pin map-location6' onClick={() => handleClick(constants.CHIKMAGALUR_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Chikmangalur</p>
             </div>
-            <div className='pin map-location7' onClick={handleClick(constants.PONDICHERRY_ID)}>
+            <div className='pin map-location7' onClick={() => handleClick(constants.PONDICHERRY_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Pondicherry</p>
             </div>
-            <div className='pin map-location8' onClick={handleClick(constants.KASHMIR_ID)}>
+            <div className='pin map-location8' onClick={() => handleClick(constants.KASHMIR_ID)}>
                 <img src={assets.location} alt="" />
                 <p className='location-name'>Kashmir</p>
             </div>

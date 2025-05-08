@@ -1,15 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/DestinationSlider.css';
+import { useApi } from '../context/ApiContext';
 
 const DestinationSlider = () => {
+  const { getTrips } = useApi(); // Get the API methods from context
+  const [trips, setTrips] = useState([]); // State to store trips
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
+
   const sliderRef = useRef(null);
-  const destinations = [
-    { id: 1, name: 'Meghalaya', image: 'meghalaya.jpg' },
-    { id: 2, name: 'Kashmir', image: 'kashmir.jpg' },
-    { id: 3, name: 'Sikkim', image: 'sikkim.jpg' },
-    { id: 4, name: 'Nepal', image: 'nepal.jpg' },
-    { id: 5, name: 'Himachal', image: 'himachal.jpg' }
-  ];
 
   const scrollLeft = () => {
     if (sliderRef.current) {
@@ -23,6 +22,34 @@ const DestinationSlider = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchTrips = async () => {
+      try {
+        let tripsData = await getTrips();
+        tripsData = tripsData.filter(item => item.topFlag === true);
+        setTrips(tripsData);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchTrips();
+  }, [getTrips]);
+
+  if (loading) {
+    return <div className="scroller-container">Loading trips...</div>;
+  }
+
+  if (error) {
+    return <div className="scroller-container">Error: {error}</div>;
+  }
+
+  if (trips.length === 0) {
+    return <div className="scroller-container">No trips available</div>;
+  }
+
   return (
     <div className="destination-slider-container">
       <h2 className="section-title">Recommended Trips (Seasonal Trip)</h2>
@@ -31,12 +58,12 @@ const DestinationSlider = () => {
           &lt;
         </button>
         <div className="destinations-slider" ref={sliderRef}>
-          {destinations.map((destination) => (
-            <div key={destination.id} className="destination-card">
+          {trips.map((destination, index) => (
+            <div key={index} className="destination-card">
               <div className="circle-image-container">
-                <img 
-                  src={`/images/${destination.image}`} 
-                  alt={destination.name} 
+                <img
+                  src={destination.pic}
+                  alt={destination.name}
                   className="circle-image"
                 />
               </div>

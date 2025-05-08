@@ -21,10 +21,10 @@ const Home = () => {
       <div className='span'>
         <p className='Title-text black-text'>Top Destinations</p>
       </div>
-      <p className='heading2 black-text'>Explore South</p>
-      <HorizontalSlider filter={'south'}/>
-      <p className='heading2 black-text'>Explore North</p>
-      <HorizontalSlider className="span" filter={'north'}/>
+      <p className='heading2 black-text'>Explore Summer Trips</p>
+      <HorizontalSlider filter={'Summer'}/>
+      <p className='heading2 black-text'>Explore Winter Trips</p>
+      <HorizontalSlider className="span" filter={'Winter'}/>
       <DestinationSlider/>
       <AdventurePoster/>
       <Footer />
