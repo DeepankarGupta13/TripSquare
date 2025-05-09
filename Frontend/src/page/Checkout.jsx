@@ -1,20 +1,49 @@
 import React, { useState } from 'react';
 import '../styles/Checkout.css';
 import { useLocation } from 'react-router-dom';
-import { backendUrl } from '../../../admin/src/App';
+import { backendUrl, currency } from '../../../admin/src/App';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const gstPercent = 0.05;
 
 const Checkout = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
 
   const totalPrice = state.trip.price * parseInt(state.travellers);
   const withoutDiscount = parseFloat((totalPrice * (1.4)).toFixed(2));
   const afterGst = parseFloat((totalPrice * gstPercent).toFixed(2));
 
   const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
+  
+  const initPay = (order) => {
+    const options = {
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+      amount: order.amount,
+      currency: order.currency,
+      name: 'Booking Payment',
+      description: 'Booking Payment',
+      order_id: order.id,
+      receipt: order.receipt,
+      handler: async (response) => {
+        try {
+          const { data } = await axios.post(backendUrl+'/order/verify', response);
+          if (data.success) {
+            toast.success('Payment Successfull! please check your email')
+            navigate('/');
+          }
+        } catch (error) {
+          console.error('error: ', error);
+          toast.error(error.message)
+        }
+      }
+    }
+    const razpay = new window.Razorpay(options)
+    razpay.open()
+  }
+  
 
   const handleProceedToPay = async () => {
     const orderData = {
@@ -31,6 +60,7 @@ const Checkout = () => {
     try {
       const response = await axios.post(backendUrl + '/api/order/razorpay/', orderData)
       if (response.data.success) {
+        initPay(response.data.order);
         setIsPaymentProcessing(false);
         toast.success(response.data.message)
       }
