@@ -27,6 +27,19 @@ const Order = ({ token }) => {
       toast.error(error.message)
     }
   }
+  
+  const statusHandler = async ( event, orderId ) => {
+    try {
+      const response = await axios.post(backendUrl+'/api/order/status', { orderId, status: event.target.value }, {headers:{token}})
+      if (response.data.success) {
+        await fetchAllOrders();
+        toast.success(response.data.message)
+      }
+    } catch (error) {
+      console.error('error: ', error);
+      toast.error(error.message);
+    }
+  }
 
   useEffect(() => {
     fetchAllOrders();
@@ -39,10 +52,10 @@ const Order = ({ token }) => {
         {
           orders.map((order, index) => (
             <div className='grid gird-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-gray-700' key={index}>
-              <img src={assets.orderIcon} alt="Trip"></img>
+              <img className='w-12' src={assets.orderIcon} alt="Trip"></img>
               <div>
-                <p>{ order.tripName } x { order.travellersCount } Travelers</p>
-                <p>Name: { order.useName }</p>
+                <p className='py-0.5'>{ order.tripName } x { order.travellersCount } Travelers</p>
+                <p className='mt-3 mb-2 font-medium'>Name: { order.userName }</p>
                 <p>Email: { order.userEmail }</p>
                 <p>PhoneNo: { order.phone }</p>
                 <p>Travel Date: { order.travelDate }</p>
@@ -50,9 +63,13 @@ const Order = ({ token }) => {
               <div>
                 <p>Payment : { order.payment ? 'Done' : 'Pending' }</p>
                 <p>Date: { new Date(order.date).toLocaleDateString() }</p>
-                <p>Status: { order.status }</p>
               </div>
-              <p>{ currency }{ order.amount }</p>
+              <p className='text-sm sm:text-[15px]'>{ currency }{ order.amount }</p>
+              <select onChange={(event) => statusHandler(event, order._id)} value={order.status} className='p-1.5 font-semibold border'>
+                <option value="Booked">Booked</option>
+                <option value="OnGoing">On Going</option>
+                <option value="Completed">Completed</option>
+              </select>
             </div>
           ))
         }

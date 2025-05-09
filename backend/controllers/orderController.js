@@ -36,7 +36,6 @@ const placeOrder = async (req, res) => {
 const allOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({})
-        console.log('orders: ', orders);
         res.status(200).json({
             success: true,
             orders: orders,
@@ -52,7 +51,20 @@ const allOrders = async (req, res) => {
 
 // update order status from admin panel
 const updateOrderStatus = async (req, res) => {
-    
+    try {
+        const { orderId, status } = req.body;
+        await orderModel.findByIdAndUpdate(orderId, { status })
+        res.status(200).json({
+            success: true,
+            message: 'Status Updated Successfully'
+        })
+    } catch (error) {
+        console.log('error: ', error);
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        })
+    }
 }
 
 export { placeOrder, allOrders, updateOrderStatus }
