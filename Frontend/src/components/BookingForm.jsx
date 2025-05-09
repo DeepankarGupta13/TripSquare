@@ -13,7 +13,7 @@ const BookingForm = ({ item }) => {
         travelDate: '',
         travellers: 1,
         agreeTerms: false,
-        trip: item,
+        trip: {},
     });
     const navigate = useNavigate();
 
@@ -34,6 +34,7 @@ const BookingForm = ({ item }) => {
         e.preventDefault();
         // Handle form submission
         console.log(formData);
+        formData.trip = item;
         navigate('/checkout', { state: formData });
         // You can pass this to parent via props if needed
     };

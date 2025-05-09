@@ -5,6 +5,7 @@ import connectDB from './config/mongodb.js';
 import connectCloudinary from './config/cloudinary.js';
 import userRoute from './routes/userRoute.js';
 import tripRouter from './routes/tripRoute.js';
+import orderRouter from './routes/orderRoutes.js'
 
 // app config
 const app = express();
@@ -18,7 +19,8 @@ app.use(cors());
 
 // routes
 app.use('/api/user', userRoute);
-app.use('/api/trip', tripRouter)
+app.use('/api/trip', tripRouter);
+app.use('/api/order', orderRouter)
 
 // api endpoint
 app.get('/', (req, res) => {

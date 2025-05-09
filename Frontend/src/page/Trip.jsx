@@ -43,8 +43,10 @@ const Trip = () => {
         if (!foundTrip) {
           throw new Error('Trip not found');
         }
+        else {
+          setTripData(foundTrip);
+        }
 
-        setTripData(foundTrip);
       } catch (err) {
         console.error('Error fetching trip data:', err);
         setError(err.message || 'Failed to load trip details');
