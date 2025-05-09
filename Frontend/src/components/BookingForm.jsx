@@ -74,7 +74,7 @@ const BookingForm = ({ item }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Travel Date* (Only Saturdays available)</label>
+                    <label>Travel Date</label>
                     <DatePicker
                         selected={formData.travelDate ? new Date(formData.travelDate) : null}
                         onChange={(date) => {

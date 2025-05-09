@@ -7,6 +7,22 @@
     margin-left: 5vw;
 }
 
+.Text-Conatiner-1 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30vh;
+    max-width: 40vw;
+    margin-left: 5vw;
+}
+
+.Title-text-big {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 4rem;
+    color: antiquewhite;
+    font-weight: 500;
+}
+
 .Title-Div {
     margin-top: 5%;
     margin-left: 10vw;
@@ -45,6 +61,14 @@
     font-size: 1rem;
     color: aliceblue;
     font-weight: 100;
+}
+
+.Description-text-big {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    color: aliceblue;
+    font-weight: 100;
+    margin-top: 30px;
 }
 
 .heading2 {

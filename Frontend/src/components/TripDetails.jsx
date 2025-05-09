@@ -63,74 +63,74 @@ const TripDetails = ({ tripData }) => {
                         </div>
                         <div ref={itineraryRef} style={{ margin: '10px', height: '50px' }}> </div>
                     </div>
-                </div>
 
-                {/* Itinerary Section */}
-                <div className="section">
-                    <h2>Itinerary</h2>
-                    <div className="content">
-                        <div className="itinerary-days">
-                            {tripData.itinerary.map((day, index) => (
-                                <div
-                                    key={index}
-                                    className={`day-container ${expandedDays[index] ? 'expanded' : ''}`}
-                                >
+                    {/* Itinerary Section */}
+                    <div className="section">
+                        <h2>Itinerary</h2>
+                        <div className="content">
+                            <div className="itinerary-days">
+                                {tripData.itinerary.map((day, index) => (
                                     <div
-                                        className="day-header"
-                                        onClick={() => toggleDay(index)}
+                                        key={index}
+                                        className={`day-container ${expandedDays[index] ? 'expanded' : ''}`}
                                     >
-                                        <h3>Day {day.day}: {day.description}</h3>
-                                        <span className="toggle-icon">
-                                            {expandedDays[index] ? '▲' : '▼'}
-                                        </span>
+                                        <div
+                                            className="day-header"
+                                            onClick={() => toggleDay(index)}
+                                        >
+                                            <h3>Day {day.day}: {day.description}</h3>
+                                            <span className="toggle-icon">
+                                                {expandedDays[index] ? '▲' : '▼'}
+                                            </span>
+                                        </div>
+                                        <div className="day-content">
+                                            <ul>
+                                                {day.activities.map((activity, i) => (
+                                                    <li key={i}>{activity}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div className="day-content">
-                                        <ul>
-                                            {day.activities.map((activity, i) => (
-                                                <li key={i}>{activity}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
+                        <div ref={inclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
                     </div>
-                    <div ref={inclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
-                </div>
 
-                {/* Other sections remain the same */}
-                <div className="section">
-                    <h2>Inclusion</h2>
-                    <div className="content">
-                        <ul className="inclusion-list">
-                            {tripData.inclusions.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
+                    {/* Other sections remain the same */}
+                    <div className="section">
+                        <h2>Inclusion</h2>
+                        <div className="content">
+                            <ul className="inclusion-list">
+                                {tripData.inclusions.map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div ref={exclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
                     </div>
-                    <div ref={exclusionRef} style={{ margin: '10px', height: '50px' }}> </div>
-                </div>
 
-                <div className="section">
-                    <h2>Exclusion</h2>
-                    <div className="content">
-                        <ul className="exclusion-list">
-                            {tripData.exclusions.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
+                    <div className="section">
+                        <h2>Exclusion</h2>
+                        <div className="content">
+                            <ul className="exclusion-list">
+                                {tripData.exclusions.map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div ref={otherInfoRef} style={{ margin: '10px', height: '60px' }}> </div>
                     </div>
-                    <div ref={otherInfoRef} style={{ margin: '10px', height: '60px' }}> </div>
-                </div>
 
-                <div className="section">
-                    <h2>Other Info</h2>
-                    <div className="content">
-                        <ul className="other-info-list">
-                            {tripData.otherDetails.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
+                    <div className="section">
+                        <h2>Other Info</h2>
+                        <div className="content">
+                            <ul className="other-info-list">
+                                {tripData.otherDetails.map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

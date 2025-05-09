@@ -1,6 +1,7 @@
 import logo from './Logo.png';
 import search from './searchbar.svg';
 import video from './video.mp4';
+import video1 from './video1.mp4';
 import map from './Map.png';
 import location from './location.svg';
 import whatsAppIcon from './WhatsApp.svg';
@@ -12,7 +13,7 @@ export const assets = {
     phoneNumber: 7085282611,
     email: 'rihasahi16@gmail.com',
     search: search,
-    videoLink: video,
+    videoLink: video1,
     map: map,
     location: location,
     facebookLink: '',

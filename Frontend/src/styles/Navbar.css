@@ -1,18 +1,27 @@
 .Navbar-Container {
     position: absolute;
     top: 0;
-    width: -webkit-fill-available;
     display: flex;
-    margin: 2% 5%;
+    justify-content: space-between;
     align-items: center;
+    width: calc(100vw - 15vw); /* Subtract the total margin */
+    margin: 0 5vw; /* 10px margin on left and right */
 }
 
 .LogoImage {
-    width: 10vw;
+    cursor: pointer;
+}
+
+.LogoImage {
+    width: 7vw;
     height: auto;
 }
 
 @media (max-width: 768px) {
+    .Navbar-Container {
+        width: -webkit-fill-available;
+    }
+
     .LogoImage {
         width: 15vw;
         height: auto;

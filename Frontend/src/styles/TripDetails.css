@@ -9,7 +9,7 @@
     padding: 15px;
     display: flex;
     justify-content: center;
-    gap: 1px;
+    gap: 3vw;
     border-radius: 20px;
     z-index: 100;
 }

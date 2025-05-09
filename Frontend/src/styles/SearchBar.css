@@ -4,7 +4,6 @@
 .search-container {
     width: 100%;
     max-width: 700px;
-    margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box;
   }
@@ -37,6 +36,7 @@
   
   /* Search input field */
   .search-input {
+    color: white;
     flex: 1;
     min-width: 50px; /* Ensure input doesn't collapse */
     border: none;

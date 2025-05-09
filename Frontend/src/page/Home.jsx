@@ -14,9 +14,10 @@ const Home = () => {
       <Video />
       <Navbar />
       <Map />
-      <div className='Text-Conatiner'>
-        <p className='Title-text'> Come Let's Explore </p>
-        <p className='Description-text'>Pack Your Bags & Your Dreams! TripSquare Makes Travel Affordable & Amazing</p>
+      <div className='Text-Conatiner-1'>
+        <p className='Title-text-big'> Come </p>
+        <p className='Title-text-big'> Let's Explore </p>
+        <p className='Description-text-big'>Pack Your Bags & Your Dreams! TripSquare Makes Travel Affordable & Amazing</p>
       </div>
       <div className='span'>
         <p className='Title-text black-text'>Top Destinations</p>
