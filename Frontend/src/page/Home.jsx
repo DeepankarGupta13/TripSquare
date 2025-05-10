@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
 import Video from '../components/video'
 import Map from '../components/map'
 import Footer from '../components/Footer'
