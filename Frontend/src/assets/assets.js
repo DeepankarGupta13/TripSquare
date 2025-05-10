@@ -6,7 +6,7 @@ import map from './Map.png';
 import location from './location.svg';
 import whatsAppIcon from './WhatsApp.svg';
 import pathLogo from './PathIcon.svg';
-import timeSheet from './TimeSheet.svg';
+import timeSheet from './Timesheet.svg';
 
 export const assets = {
     logo: logo,
