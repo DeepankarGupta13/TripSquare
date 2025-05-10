@@ -13,7 +13,7 @@ import ContactStickyButton from '../components/ContactStickyButton';
 import { useApi } from '../context/ApiContext';
 // import { assets } from '../assets/assets';
 import Map from '../components/map';
-import Video from '../components/Video';
+import Video from '../components/video';
 import ReviewCards from '../components/ReviewCards';
 
 const Trip = () => {
