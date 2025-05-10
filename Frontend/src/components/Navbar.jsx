@@ -1,6 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/assets.js'
-import SearchBar from './searchbar'
+import SearchBar from './SearchBar'
 import '../styles/Navbar.css'
 import { useNavigate } from 'react-router-dom';
 
