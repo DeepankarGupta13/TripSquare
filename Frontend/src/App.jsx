@@ -21,8 +21,7 @@
 // export default App
 
 // TestRouter.jsx
-import { BrowserRouter } from 'react-router-dom';
 
 export default function Test() {
-  return <BrowserRouter>Test</BrowserRouter>;
+  return <div>GGWP</div>;
 }
