@@ -9,6 +9,11 @@ export default defineConfig({
     rollupOptions: {
       external: ['react-router-dom', 'react-toastify', "axios"]
     }
-  }
+  },
+  resolve: {
+    alias: {
+      'react-router-dom': 'react-router-dom/dist/index.js',
+    },
+  },
 
 })
