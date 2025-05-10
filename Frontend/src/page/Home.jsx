@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Video from '../components/Video'
-import Map from '../components/map'
+import Map from '../components/Map'
 import Footer from '../components/Footer'
 import '../styles/Home.css'
 import HorizontalSlider from '../components/Slider'
