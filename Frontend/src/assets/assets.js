@@ -3,7 +3,7 @@ import search from './searchbar.svg';
 import video from './video.mp4';
 import video1 from './video1.mp4';
 import map from './Map.png';
-import location from './location.svg';
+import location from './Location.svg';
 import whatsAppIcon from './WhatsApp.svg';
 import pathLogo from './PathIcon.svg';
 import timeSheet from './Timesheet.svg';
