@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Video from '../components/video'
+import Video from '../components/Video'
 import Map from '../components/map'
 import Footer from '../components/Footer'
 import '../styles/Home.css'
