@@ -11,7 +11,7 @@ import timeSheet from './Timesheet.svg';
 export const assets = {
     logo: logo,
     phoneNumber: 9353954849,
-    email: 'rihasahi16@gmail.com',
+    email: 'tripsquaredatabase@gmail.com',
     search: search,
     videoLink: video1,
     map: map,
