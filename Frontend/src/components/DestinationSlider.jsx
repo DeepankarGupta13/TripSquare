@@ -26,7 +26,6 @@ const DestinationSlider = () => {
     const fetchTrips = async () => {
       try {
         let tripsData = await getTrips();
-        tripsData = tripsData.filter(item => item.topFlag === true);
         setTrips(tripsData);
         setLoading(false);
       } catch (err) {
