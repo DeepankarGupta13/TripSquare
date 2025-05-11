@@ -10,7 +10,7 @@ import timeSheet from './Timesheet.svg';
 
 export const assets = {
     logo: logo,
-    phoneNumber: 7085282611,
+    phoneNumber: 9353954849,
     email: 'rihasahi16@gmail.com',
     search: search,
     videoLink: video1,
