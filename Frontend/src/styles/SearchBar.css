@@ -108,6 +108,7 @@
   @media (max-width: 768px) {
     .search-container {
       padding: 0.75rem;
+      max-width: 250px;
     }
   
     .search-icon-input {

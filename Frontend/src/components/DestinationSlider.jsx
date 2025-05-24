@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/DestinationSlider.css';
 import { useApi } from '../context/ApiContext';
+import { useNavigate } from 'react-router-dom';
 
 const DestinationSlider = () => {
   const { getTrips } = useApi(); // Get the API methods from context
   const [trips, setTrips] = useState([]); // State to store trips
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
+  const navigate = useNavigate(); // Hook to navigate to different routes
 
   const sliderRef = useRef(null);
 
@@ -20,6 +22,11 @@ const DestinationSlider = () => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({ left: 200, behavior: 'smooth' });
     }
+  };
+  
+  const handleCardClick = (trip) => {
+    // Handle the click event for each trip card
+    navigate(`/trip/${trip._id}`)
   };
 
   useEffect(() => {
@@ -58,7 +65,7 @@ const DestinationSlider = () => {
         </button>
         <div className="destinations-slider" ref={sliderRef}>
           {trips.map((destination, index) => (
-            <div key={index} className="destination-card">
+            <div key={index} className="destination-card" onClick={() => handleCardClick(destination)}>
               <div className="circle-image-container">
                 <img
                   src={destination.pic}

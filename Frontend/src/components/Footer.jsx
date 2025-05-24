@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import '../styles/Footer.css';
 import { assets } from '../assets/assets.js'
 
@@ -33,14 +33,11 @@ const Footer = () => {
         <div className="footer-section social">
           <h3 className="footer-title">Follow us</h3>
           <div className="social-icons">
-            <a href={assets.facebookLink} className="social-link">
-              <FaFacebook className="social-icon" />
-            </a>
             <a href={assets.instagramLink} className="social-link">
               <FaInstagram className="social-icon" />
             </a>
-            <a href={assets.twitterLink} className="social-link">
-              <FaTwitter className="social-icon" />
+            <a href={assets.whatsappLink} className="social-link">
+              <FaWhatsapp className="social-icon" />
             </a>
           </div>
         </div>

@@ -91,14 +91,44 @@
 @media (max-width: 768px) {
     .Text-Conatiner {
         max-width: 100vw;
-        top: 17%;
+        top: 10vh;
     }
     
     .Title-text {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .Title-text-big {
+        font-size: 2.5rem;
     }
     
     .Description-text {
         font-size: 1rem;
+    }
+    
+    .Text-Conatiner-1 {
+        top: 15vh;
+    }
+}
+
+@media (max-height: 600px) {
+    .Text-Conatiner {
+        top: 20vh;
+    }
+    
+    .Text-Conatiner-1 {
+        top: 25vh;
+    }
+    
+    .Title-text-big {
+        font-size: 2rem;
+    }
+    
+    .Title-text {
+        font-size: 1.5rem;
+    }
+    
+    .Description-text {
+        font-size: 0.9rem;
     }
 }

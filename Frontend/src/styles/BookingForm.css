@@ -45,6 +45,14 @@
     width: 20vw;
 }
 
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 22vw;
+}
+
 .price-display {
     color: #27ae60;
     font-weight: 600;
@@ -109,5 +117,9 @@
 
     .form-group input {
         width: 60vw;
+    }
+    
+    .form-group select {
+        width: 67vw;
     }
 }

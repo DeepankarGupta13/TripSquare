@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import '../styles/BookingForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { assets } from '../assets/assets';
 
 const BookingForm = ({ item }) => {
     const basePrice = item.price;
@@ -12,14 +13,15 @@ const BookingForm = ({ item }) => {
         phone: '',
         travelDate: '',
         travellers: 1,
+        tripType: 'Group Trip', // Default trip type
         agreeTerms: false,
         trip: {},
     });
     const navigate = useNavigate();
 
-    // Filter function to only allow Saturdays
-    const isSaturday = (date) => {
-        return date.getDay() === 6; // 6 is Saturday
+    // Filter function to only allow Fridays
+    const isFriday = (date) => {
+        return date.getDay() === 5; // 5 is Friday
     };
 
     const handleChange = (e) => {
@@ -32,12 +34,14 @@ const BookingForm = ({ item }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log(formData);
         formData.trip = item;
         navigate('/checkout', { state: formData });
-        // You can pass this to parent via props if needed
     };
+
+    const whatsappMessage = `Hi, I'm interested in booking ${item.title} for ${formData.travellers} people. Please contact me.`;
+    const whatsappUrl = `https://wa.me/${assets.phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    const isGroupTripWithFewPeople = (formData.tripType === 'Group Trip' && formData.travellers < 5) || (formData.tripType !== 'Group Trip');
 
     return (
         <div className="booking-form-container">
@@ -74,6 +78,20 @@ const BookingForm = ({ item }) => {
                     />
                 </div>
                 <div className="form-group">
+                    <label>Trip Type</label>
+                    <select
+                        name="tripType"
+                        value={formData.tripType}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="Group Trip">Group Trip</option>
+                        <option value="Private/Family Trip">Private/Family Trip</option>
+                        <option value="Co-orporate Trip">Co-orporate Trip</option>
+                        <option value="HoneyMoon">HoneyMoon</option>
+                    </select>
+                </div>
+                <div className="form-group">
                     <label>Travel Date</label>
                     <DatePicker
                         selected={formData.travelDate ? new Date(formData.travelDate) : null}
@@ -87,8 +105,13 @@ const BookingForm = ({ item }) => {
                                 travelDate: dateString
                             }));
                         }}
-                        filterDate={isSaturday}
+                        filterDate={isFriday}
                         minDate={new Date()}
+                        maxDate={(() => {
+                            const date = new Date();
+                            date.setMonth(date.getMonth() + 2);
+                            return date;
+                        })()}
                         placeholderText="Select Date"
                         dateFormat="yyyy-MM-dd"
                         required
@@ -117,11 +140,21 @@ const BookingForm = ({ item }) => {
                         checked={formData.agreeTerms}
                         onChange={handleChange}
                         required
-                        style={{width: 'auto'}}
+                        style={{ width: 'auto' }}
                     />
                     <label htmlFor="agreeTerms">I agree to the terms & conditions.</label>
                 </div>
-                <button type="submit" className="book-button">Book & Pay</button>
+                
+                {isGroupTripWithFewPeople ? (
+                    <button 
+                        className="book-button"
+                        onClick={() => window.open(whatsappUrl, '_blank')}
+                    >
+                        Connect with us on WhatsApp
+                    </button>
+                ) : (
+                    <button type="submit" className="book-button">Book & Pay</button>
+                )}
             </form>
         </div>
     );

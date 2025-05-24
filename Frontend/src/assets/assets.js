@@ -1,4 +1,4 @@
-import logo from './Logo.png';
+import logo from './final_logo.png';
 import search from './searchbar.svg';
 import video from './video.mp4';
 import video1 from './video1.mp4';
@@ -17,8 +17,9 @@ export const assets = {
     map: map,
     location: location,
     facebookLink: '',
-    instagramLink: '',
+    instagramLink: 'https://www.instagram.com/heytripsquare?igsh=MWx5NHFteHo5MXVuMA==',
     twitterLink: '',
+    whatsappLink: 'https://wa.me/919353954849?text=Hello%20TripSquare%2C%20I%20need%20help%20with%20my%20booking!',
     whatsappIcon: whatsAppIcon,
     pathLogo: pathLogo,
     timeSheet: timeSheet,

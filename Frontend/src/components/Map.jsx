@@ -9,12 +9,14 @@ import { toast } from 'react-toastify';
 const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState({
         width: window.innerWidth,
+        height: window.innerHeight,
     });
 
     useEffect(() => {
         const handleResize = () => {
             setWindowSize({
                 width: window.innerWidth,
+                height: window.innerHeight,
             });
         };
 
@@ -27,7 +29,7 @@ const useWindowSize = () => {
 
 const Map = () => {
     const navigate = useNavigate();
-    const { width } = useWindowSize();
+    const { width, height } = useWindowSize();
     const { getTrips } = useApi(); // Get the API methods from context
     const [trips, setTrips] = useState([]); // State to store trips
 
@@ -53,7 +55,7 @@ const Map = () => {
         }
     }
 
-    if (width < 800) {
+    if (width < 800 || height < 600) {
         return null; // Return nothing if screen is too small
     }
 

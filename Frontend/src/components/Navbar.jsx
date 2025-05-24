@@ -13,7 +13,10 @@ const Navbar = () => {
   
   return (
     <div className='Navbar-Container'>
-      <img onClick={handleClick} className="LogoImage" src={assets.logo} alt="logo" width={'120px'} />
+      <div className="logo-container" onClick={handleClick}>
+        <img className="LogoImage" src={assets.logo} alt="logo" width={'120px'} />
+        <span className="logo-text">Trip Square</span>
+      </div>
       <SearchBar/>
     </div>
   )

@@ -1,11 +1,13 @@
 .Navbar-Container {
     position: absolute;
-    top: 0;
+    top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: calc(100vw - 15vw); /* Subtract the total margin */
-    margin: 0 5vw; /* 10px margin on left and right */
+    width: calc(100vw - 15vw);
+    /* Subtract the total margin */
+    margin: 0 5vw;
+    /* 10px margin on left and right */
 }
 
 .LogoImage {
@@ -13,9 +15,39 @@
 }
 
 .LogoImage {
-    width: 7vw;
+    width: 60px;
     height: auto;
 }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    /* This centers items vertically */
+    cursor: pointer;
+}
+
+.logo-text {
+    font-family: 'MV Boli', cursive;
+    font-size: 15px;
+    font-weight: 800;
+    width: 100px;
+    color: #ccc;
+    display: flex;
+    height: 100%;
+    width: 50px;
+    text-align: center;
+}
+
+/* If you want the text to be perfectly centered with the image */
+.LogoImage {
+    display: block;
+    /* Removes any default image spacing */
+}
+
+/* If you want to ensure MV Boli font is available, you might want to add this to your main CSS file or index.html */
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap');
+/* Note: MV Boli is a Windows system font, so it might not be available on all devices.
+   The above import provides a similar fallback font (Mali) that will be used if MV Boli isn't available. */
 
 @media (max-width: 768px) {
     .Navbar-Container {
@@ -23,7 +55,7 @@
     }
 
     .LogoImage {
-        width: 15vw;
+        width: 60px;
         height: auto;
     }
 }
