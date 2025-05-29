@@ -4,6 +4,7 @@ import Home from './page/Home'
 import Trip from './page/Trip'
 import Checkout from './page/Checkout'
 import { ToastContainer } from 'react-toastify';
+import HoneyMoonTrip from './page/HoneyMoonTrip'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/trip/:tripId' element={<Trip/>} />
         <Route path='/checkout' element={<Checkout/>} />
+        <Route path='/honeymoon-trip' element={<HoneyMoonTrip/>} />
       </Routes>
     </div>
   )

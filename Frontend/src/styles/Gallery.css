@@ -1,0 +1,177 @@
+/* General Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styles */
+.header-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gallery-title {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.gallery-subtitle {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.header-underline {
+  width: 80px;
+  height: 4px;
+  background-color: #ff6347; /* Example accent color */
+  margin: 0 auto;
+}
+
+/* Desktop Grid View (Default) */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.image-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-card.featured {
+  grid-column: span 2; /* Make featured images take more space */
+  grid-row: span 2; /* Make featured images take more space vertically */
+}
+
+.image-element {
+  width: 100%;
+  height: 250px; /* Adjust height as needed */
+  object-fit: cover;
+  display: block;
+}
+
+.image-card.featured .image-element {
+  height: 500px; /* Adjust height for featured image */
+}
+
+
+/* --- Mobile Slider View (Applies when isMobile is true) --- */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Hide extra images */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 20px 0;
+}
+
+.slider-content {
+  display: flex; /* Arrange items in a row */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+}
+
+.slider-item {
+  min-width: 100%; /* Each item takes full width */
+  box-sizing: border-box; /* Include padding/border in width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-image {
+  max-width: 100%;
+  max-height: 400px; /* Adjust max height for mobile slider images */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure entire image is visible */
+  display: block; /* Remove extra space below image */
+}
+
+/* Slider Navigation Buttons */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10; /* Ensure buttons are above images */
+  border-radius: 5px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.slider-button:hover {
+  opacity: 1;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
+}
+
+/* Slider Dots Navigation */
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ff6347; /* Active dot color */
+}
+
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  .image-grid {
+    display: none; /* Hide grid on mobile */
+  }
+
+  .slider-wrapper {
+    display: block; /* Show slider on mobile */
+  }
+
+  /* Adjust header for mobile */
+  .gallery-title {
+    font-size: 2em;
+  }
+
+  .gallery-subtitle {
+    font-size: 1em;
+  }
+}
+
+/* Ensure the slider container takes up space even when hidden for desktop */
+@media (min-width: 769px) {
+  .slider-wrapper {
+    display: none; /* Hide slider on desktop */
+  }
+}

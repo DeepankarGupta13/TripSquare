@@ -120,7 +120,7 @@ const WhyTripSquare = () => {
       </div>
 
       {totalSlides > 1 && (
-        <div className="slider-dots">
+        <div className="slider-dots-whyTS">
           {Array.from({ length: totalSlides }).map((_, index) => (
             <span
               key={index}

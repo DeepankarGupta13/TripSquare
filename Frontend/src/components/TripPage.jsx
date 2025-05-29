@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/TripPage.css';
 import { useNavigate } from 'react-router-dom';
 import { useApi } from '../context/ApiContext';
+import { months } from '../assets/assets';
 
 const TripPage = () => {
     const navigate = useNavigate();
@@ -69,9 +70,18 @@ const TripPage = () => {
             return;
         }
 
-        const filtered = trips.filter(trip => 
-            trip.recommendedMonths?.includes(selectedMonth.value)
-        );
+        const filtered = trips.filter(trip => {
+            if (!trip.name) return false;
+
+            // Get the places for the selected month
+            const monthPlaces = months[selectedMonth.value] || [];
+
+            // Check if any of the month places is included in the trip name (case insensitive)
+            return monthPlaces.some(place =>
+                trip.name.toLowerCase().includes(place.toLowerCase())
+            );
+        });
+
         setFilteredTrips(filtered);
         setCurrentPage(0);
     }, [selectedMonth, trips]);

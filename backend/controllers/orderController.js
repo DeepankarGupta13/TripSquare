@@ -23,6 +23,25 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+const sendEmail = async (req, res) => {
+    try {
+        const { mailOptions } = req.body;
+        await transporter.sendMail(mailOptions);
+        console.log('Confirmation email sent successfully');
+        res.status(200).json({
+            success: true,
+            message: 'Confirmation email sent successfully',
+        });
+    } catch (error) {
+        console.error('Error sending confirmation email:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to send confirmation email: ' + error.message,
+        });
+        // You might want to log this error to a monitoring service
+    }
+}
+
 const sendConfirmationEmail = async (order) => {
     console.log('order: ', order);
     try {
@@ -174,4 +193,4 @@ const updateOrderStatus = async (req, res) => {
     }
 }
 
-export { verifyRazorpay, placeOrder, allOrders, updateOrderStatus }
+export { sendEmail, verifyRazorpay, placeOrder, allOrders, updateOrderStatus }

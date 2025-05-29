@@ -22,12 +22,14 @@
 .logo-container {
     display: flex;
     align-items: center;
+    /* flex-direction: column; */
     /* This centers items vertically */
     cursor: pointer;
 }
 
 .logo-text {
-    font-family: 'MV Boli', cursive;
+    /* font-family: 'MV Boli', cursive; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 15px;
     font-weight: 800;
     width: 100px;
@@ -35,7 +37,7 @@
     display: flex;
     height: 100%;
     width: 50px;
-    text-align: center;
+    text-align: left;
 }
 
 /* If you want the text to be perfectly centered with the image */

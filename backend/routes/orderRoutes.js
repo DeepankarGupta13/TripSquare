@@ -1,5 +1,5 @@
 import express from 'express'
-import { placeOrder, allOrders, updateOrderStatus, verifyRazorpay } from '../controllers/orderController.js'
+import { placeOrder, allOrders, updateOrderStatus, verifyRazorpay, sendEmail } from '../controllers/orderController.js'
 import adminAuth from '../middleware/adminAuth.js';
 
 const orderRouter = express.Router()
@@ -13,5 +13,8 @@ orderRouter.post('/razorpay', placeOrder)
 
 // verify Payment
 orderRouter.post('/verify', verifyRazorpay)
+
+// send email
+orderRouter.post('/send-email', sendEmail)
 
 export default orderRouter;
