@@ -37,7 +37,7 @@ const HoneyMoonTrip = () => {
       <HoneymoonForm />
       <WhyTripSquare />
       <Gallery />
-      <EnquiryForm />
+      <EnquiryForm tripType='Honeymoon' />
       <Footer />
     </div>
   )

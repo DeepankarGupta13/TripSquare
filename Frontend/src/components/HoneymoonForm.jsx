@@ -47,7 +47,7 @@ const HoneymoonForm = () => {
   
       // Handle form submission logic here
       console.log('Form submitted:', formData);
-      await sendConfirmationEmail(formData);
+      await sendConfirmationEmail(formData, 'Honeymoon'); // Pass 'Honeymoon' as tripType
     }
     catch (error) {
       console.error('Error submitting form:', error);

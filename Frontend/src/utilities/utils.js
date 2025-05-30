@@ -3,7 +3,7 @@ import { backendUrl } from "../../../admin/src/App";
 import { assets } from "../assets/assets";
 import { toast } from "react-toastify";
 
-export const sendConfirmationEmail = async (formData) => {
+export const sendConfirmationEmail = async (formData, tripType = '') => {
     console.log('formData: ', formData);
     try {
         const mailOptions = {
@@ -12,9 +12,9 @@ export const sendConfirmationEmail = async (formData) => {
                 address: assets.email, // Use the email from assets
             },
             to: assets.email, // Use the email from assets
-            subject: 'Booking Enquiry',
+            subject: `${tripType} Booking Enquiry`,
             html: `
-                <h1>Honeymoon Booking Enquiry</h1>
+                <h1>${tripType} Booking Enquiry</h1>
                 <p>Enquiry is from ${formData.name}</p>
                 <h3>UserDetails:</h3>
                 <ul>

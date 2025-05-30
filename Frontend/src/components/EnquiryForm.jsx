@@ -3,7 +3,7 @@ import '../styles/EnquiryForm.css'; // Import the CSS file for styling
 import { sendConfirmationEmail } from '../utilities/utils';
 
 // Main ContactForm functional component
-function App() {
+function App({tripType = ''}) {
     // State variables to hold form input values
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -34,7 +34,7 @@ function App() {
         try {
             // In a real application, you would send this data to a backend server
             console.log('Form submitted:', { name, email, phone, message });
-            await sendConfirmationEmail({ name, email, phone, message });
+            await sendConfirmationEmail({ name, email, phone, message }, tripType);
         }
         catch (error) {
             console.error('Error submitting form:', error);

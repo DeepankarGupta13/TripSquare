@@ -35,7 +35,7 @@ const FamilyTrip = () => {
             <AboutFamilyTrip />
             <WhyTripSquare />
             <Gallery galleryImages={familyTripImages}/>
-            <EnquiryForm />
+            <EnquiryForm tripType='Family'/>
             <AdventurePoster />
             <Footer />
         </div>
