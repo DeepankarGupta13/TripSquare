@@ -28,7 +28,7 @@ export const sendConfirmationEmail = async (formData) => {
                 <p>Please contact user ASAP!!</p>
             `
         };
-        const response = await axios.post(backendUrl + '/api/order/send-email', { mailOptions });
+        const response = await axios.post(backendUrl + 'api/order/send-email', { mailOptions });
         if (response.data.success) {
             toast.success('Thank you for your enquiry! We will get back to you soon.');
         } else {

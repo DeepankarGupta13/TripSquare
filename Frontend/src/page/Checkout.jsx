@@ -29,7 +29,7 @@ const Checkout = () => {
       receipt: order.receipt,
       handler: async (response) => {
         try {
-          const { data } = await axios.post(backendUrl+'/order/verify', response);
+          const { data } = await axios.post(backendUrl+'order/verify', response);
           if (data.success) {
             toast.success('Payment Successfull! please check your email')
             navigate('/');
@@ -58,7 +58,7 @@ const Checkout = () => {
     }
     setIsPaymentProcessing(true);
     try {
-      const response = await axios.post(backendUrl + '/api/order/razorpay/', orderData)
+      const response = await axios.post(backendUrl + 'api/order/razorpay/', orderData)
       if (response.data.success) {
         initPay(response.data.order);
         setIsPaymentProcessing(false);
