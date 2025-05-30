@@ -5,6 +5,8 @@ import Trip from './page/Trip'
 import Checkout from './page/Checkout'
 import { ToastContainer } from 'react-toastify';
 import HoneyMoonTrip from './page/HoneyMoonTrip'
+import WeekendTrip from './page/WeekendTrip'
+import FamilyTrip from './page/FamilyTrip'
 
 const App = () => {
   return (
@@ -15,6 +17,9 @@ const App = () => {
         <Route path='/trip/:tripId' element={<Trip/>} />
         <Route path='/checkout' element={<Checkout/>} />
         <Route path='/honeymoon-trip' element={<HoneyMoonTrip/>} />
+        <Route path='/weekend-trip' element={<WeekendTrip/>} />
+        <Route path='/long-trip' element={<WeekendTrip type='long'/>} />
+        <Route path='/family-trip' element={<FamilyTrip />} />
       </Routes>
     </div>
   )

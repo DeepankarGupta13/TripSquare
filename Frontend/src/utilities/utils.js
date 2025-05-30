@@ -12,7 +12,7 @@ export const sendConfirmationEmail = async (formData) => {
                 address: assets.email, // Use the email from assets
             },
             to: assets.email, // Use the email from assets
-            subject: 'Honeymoon Booking Enquiry',
+            subject: 'Booking Enquiry',
             html: `
                 <h1>Honeymoon Booking Enquiry</h1>
                 <p>Enquiry is from ${formData.name}</p>

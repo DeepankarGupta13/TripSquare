@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Gallery.css';
 import { coupleImages } from '../assets/assets';
 
-export default function Gallery() {
+const Gallery = ({galleryImages = coupleImages}) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Adjust breakpoint
   const [currentSlide, setCurrentSlide] = useState(0);
   const touchStartX = useRef(0);
@@ -11,33 +11,28 @@ export default function Gallery() {
   // Array of image data
   const images = [
     {
-      src: coupleImages[5],
+      src: galleryImages[5],
       alt: "Couple by Waterfall",
       featured: true,
     },
     {
-      src: coupleImages[0],
+      src: galleryImages[0],
       alt: "Couple Walking",
       featured: false,
     },
     {
-      src: coupleImages[2],
+      src: galleryImages[2],
       alt: "Couple Laughing",
       featured: false,
     },
     {
-      src: coupleImages[3],
+      src: galleryImages[3],
       alt: "Couple on Beach",
       featured: false,
     },
     {
-      src: coupleImages[4],
+      src: galleryImages[4],
       alt: "Couple in Field",
-      featured: false,
-    },
-    {
-      src: coupleImages[1],
-      alt: "Couple Posing",
       featured: false,
     },
   ];
@@ -158,3 +153,5 @@ export default function Gallery() {
     </div>
   );
 }
+
+export default Gallery;

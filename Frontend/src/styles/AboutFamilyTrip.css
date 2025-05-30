@@ -1,0 +1,124 @@
+/* General container for the family trip section */
+.about-family-trip-container {
+  padding: 20px;
+  max-width: 1200px; /* Limit overall width for readability on large screens */
+  margin: 0 auto; /* Center the container */
+  font-family: Arial, sans-serif; /* A common, readable font */
+  color: #333; /* Darker text for readability */
+}
+
+/* Content wrapper for padding and alignment */
+.about-family-trip-content {
+  background-color: #ffffff; /* White background for the content box */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 25px;
+  text-align: center; /* Center the title and intro paragraph */
+}
+
+/* Title styling */
+.about-family-trip-title {
+  font-size: 2.2em; /* Larger font for the main title */
+  color: #0AA84E; /* A nice blue color */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Text container for the expandable content */
+.about-family-trip-text {
+  font-size: 1.1em; /* Readable font size for paragraphs */
+  line-height: 1.6; /* Good line height for readability */
+  text-align: left; /* Align paragraphs to the left */
+  color: #555; /* Slightly lighter text for body */
+  max-height: 120px; /* Initial height for the collapsed state */
+  overflow: hidden; /* Hide overflowing content */
+  transition: max-height 0.5s ease-in-out; /* Smooth transition for expansion */
+}
+
+.about-family-trip-text.expanded {
+  max-height: 1000px; /* Large enough height to show all content when expanded */
+  /* You might need to adjust this value if your content is significantly longer */
+}
+
+/* Styling for individual paragraphs */
+.about-family-trip-text p {
+  margin-bottom: 15px; /* Spacing between paragraphs */
+}
+
+.about-family-trip-text p:last-child {
+  margin-bottom: 0; /* No margin after the last paragraph */
+}
+
+/* Button styling */
+.toggle-content-btn {
+  background-color: #fff; /* Primary button color */
+  color: #0AA84E;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 1em;
+  cursor: pointer;
+  border: #222 1px solid; /* Border to match the text color */
+  margin-top: 25px; /* Space above the button */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  text-transform: uppercase; /* Make button text uppercase */
+  letter-spacing: 0.5px; /* A little spacing for button text */
+}
+
+.toggle-content-btn:hover {
+  background-color: #ddd; /* Darker blue on hover */
+}
+
+/* Responsive adjustments */
+
+/* For screens smaller than 768px (e.g., tablets and large mobiles) */
+@media (max-width: 768px) {
+  .about-family-trip-container {
+    padding: 15px;
+  }
+
+  .about-family-trip-content {
+    padding: 20px;
+  }
+
+  .about-family-trip-title {
+    font-size: 1.8em; /* Slightly smaller title */
+  }
+
+  .about-family-trip-text {
+    font-size: 1em; /* Slightly smaller text */
+    max-height: 100px; /* Adjust initial height if needed for smaller screens */
+  }
+
+  .toggle-content-btn {
+    padding: 10px 20px;
+    font-size: 0.95em;
+  }
+}
+
+/* For screens smaller than 480px (e.g., small mobiles) */
+@media (max-width: 480px) {
+  .about-family-trip-container {
+    padding: 10px;
+  }
+
+  .about-family-trip-content {
+    padding: 15px;
+  }
+
+  .about-family-trip-title {
+    font-size: 1.5em; /* Even smaller title */
+    margin-bottom: 15px;
+  }
+
+  .about-family-trip-text {
+    font-size: 0.95em; /* Smaller text for better fit */
+    max-height: 90px; /* Adjust initial height */
+  }
+
+  .toggle-content-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    margin-top: 20px;
+  }
+}

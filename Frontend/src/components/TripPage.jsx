@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useApi } from '../context/ApiContext';
 import { months } from '../assets/assets';
 
-const TripPage = () => {
+const TripPage = ({ filter='all' }) => {
     const navigate = useNavigate();
     const { getTrips } = useApi();
     const [trips, setTrips] = useState([]);
@@ -41,8 +41,33 @@ const TripPage = () => {
         const fetchTrips = async () => {
             try {
                 const tripsData = await getTrips();
-                setTrips(tripsData);
-                setFilteredTrips(tripsData);
+                if (filter === 'weekend') {
+                    // Filter trips for weekend getaways
+                    const weekendTrips = tripsData.filter(trip => {
+                        // Extract the number of days from the duration string (e.g., "3D/2N")
+                        const match = trip.duration && trip.duration.match(/^(\d+)/);
+                        const days = match ? parseInt(match[1], 10) : 0;
+                        return days < 3;
+                    });
+                    setTrips(weekendTrips);
+                    setFilteredTrips(weekendTrips);
+                } else if (filter === 'long') { 
+                    // Filter trips for weekend getaways
+                    const longTrip = tripsData.filter(trip => {
+                        // Extract the number of days from the duration string (e.g., "3D/2N")
+                        const match = trip.duration && trip.duration.match(/^(\d+)/);
+                        const days = match ? parseInt(match[1], 10) : 0;
+                        console.log('days: ', days);
+                        console.log('days > 3: ', days > 3);
+                        return days > 3;
+                    });
+                    setTrips(longTrip);
+                    setFilteredTrips(longTrip);
+                } else {
+                    // Default to all trips
+                    setTrips(tripsData);
+                    setFilteredTrips(tripsData);
+                }
                 setLoading(false);
             } catch (err) {
                 setError(err.message);

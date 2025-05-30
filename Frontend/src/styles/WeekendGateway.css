@@ -1,0 +1,107 @@
+.weekend-gateway-container {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  padding: 20px;
+  max-width: 960px; /* Max width to keep content centered on larger screens */
+  margin: 0 auto; /* Center the container */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.main-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.icon-weekend-gateway {
+    font-size: 5rem;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between grid items */
+}
+
+.feature-item {
+  flex: 1 1 280px; /* Flex-grow, flex-shrink, flex-basis. Allows items to grow/shrink and sets a base width */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 250px; /* Minimum width for each item */
+}
+
+.feature-item:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.icon-placeholder {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e6f7ff; /* Light background for icons */
+  color: #1890ff; /* Icon color */
+}
+
+.icon-placeholder svg {
+  width: 50px;
+  height: 50px;
+  stroke-width: 1.5; /* Adjust stroke thickness for icons */
+}
+
+.feature-text {
+  font-size: 1.1em;
+  color: #555;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.8em;
+  }
+
+  .features-grid {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center;
+  }
+
+  .feature-item {
+    width: 90%; /* Take up more width on smaller screens */
+    max-width: 350px; /* Limit max width for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.5em;
+  }
+
+  .feature-item {
+    padding: 15px;
+  }
+
+  .icon-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon-placeholder svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .feature-text {
+    font-size: 1em;
+  }
+}

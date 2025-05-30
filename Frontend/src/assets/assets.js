@@ -15,6 +15,8 @@ import couple5 from './couple8.jpg';
 import couple6 from './couple9.jpg';
 import teamOutting from './TeamOuting.jpg';
 import privateTrip from './privateTrip.jpg';
+import WeekendTripCover from './Grp1.jpg';
+import longWeekTrip from './desert2.jpeg';
 
 export const assets = {
     logo: logo,
@@ -34,6 +36,8 @@ export const assets = {
     honeymoonVideo: honeymoon,
     teamOutting: teamOutting,
     privateTrip: privateTrip,
+    WeekendTripCover: WeekendTripCover,
+    longWeekTrip: longWeekTrip,
 }
 
 export const coupleImages = [
@@ -43,6 +47,16 @@ export const coupleImages = [
     couple4,
     couple5,
     couple6
+]
+
+export const familyTripImages = [
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748115258/x04doayyrg8nhyq3lxzt.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748115258/anik1qm8pthgcdj0xv1v.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748115258/poqrot3r5rdgexbemt0n.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748613999/WhatsApp_Image_2025-05-23_at_22.26.39_dl8xg7.jpg',
+    longWeekTrip,
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748614291/WhatsApp_Image_2025-05-23_at_22.25.20_3_oqhze7.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748614292/WhatsApp_Image_2025-05-23_at_22.25.20_2_jizswj.jpg',
 ]
 
 export const months = {

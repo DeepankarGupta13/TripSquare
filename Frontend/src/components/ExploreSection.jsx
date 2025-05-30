@@ -133,14 +133,17 @@ function ExploreSection() {
 
           {/* Group Trips Card */}
           <TripCard
+            func={() => navigate('/weekend-trip')}
             imageUrl="https://res.cloudinary.com/dfxgnf8kz/image/upload/v1746968217/cgwkdjr1sd5x4k3odhmi.jpg"
             title="Weekend Trips"
           />
           <TripCard
+            func={() => navigate('/long-trip')}
             imageUrl="https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748115258/txrlv9hxbsl7aymxk24j.jpg"
             title="Long week Trips"
           />
           <TripCard
+            func={() => navigate('/family-trip')}
             imageUrl="https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748115258/x04doayyrg8nhyq3lxzt.jpg"
             title="Family Trips"
           />
