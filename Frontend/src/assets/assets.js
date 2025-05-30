@@ -17,7 +17,7 @@ import teamOutting from './TeamOuting.jpg';
 import privateTrip from './privateTrip.jpg';
 import WeekendTripCover from './Grp1.jpg';
 import longWeekTrip from './desert2.jpeg';
-import CorporateTrip from './teamOuting2.jpg';
+import CorporateTrip from './teamouting2.jpg';
 import camera from './camera.png';
 import content from './content.png';
 import house from './House.png';
