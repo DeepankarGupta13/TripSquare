@@ -13,6 +13,8 @@ import couple3 from './couple6.jpg';
 import couple4 from './couple7.jpg';
 import couple5 from './couple8.jpg';
 import couple6 from './couple9.jpg';
+import teamOutting from './TeamOuting.jpg';
+import privateTrip from './privateTrip.jpg';
 
 export const assets = {
     logo: logo,
@@ -30,6 +32,8 @@ export const assets = {
     pathLogo: pathLogo,
     timeSheet: timeSheet,
     honeymoonVideo: honeymoon,
+    teamOutting: teamOutting,
+    privateTrip: privateTrip,
 }
 
 export const coupleImages = [

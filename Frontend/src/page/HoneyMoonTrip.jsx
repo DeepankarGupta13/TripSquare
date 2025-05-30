@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import { assets } from '../assets/assets'
 import Video from '../components/Video'
@@ -14,6 +14,10 @@ import EnquiryForm from '../components/EnquiryForm'
 const HoneyMoonTrip = () => {
   const phoneNumber = assets.phoneNumber; // Replace with your actual WhatsApp number
   const message = 'Hello, I Want to Book a Honeymoon Trip'; // Default message
+  
+  useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const bookButton = () => {
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

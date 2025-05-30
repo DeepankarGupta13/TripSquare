@@ -9,6 +9,7 @@ import AdventurePoster from '../components/AdventurePoster'
 import TripPage from '../components/TripPage'
 import JourneyInFrames from '../components/JourneyInFrames'
 import WhyTripSquare from '../components/WhyTripSquare '
+import ExploreSection from '../components/ExploreSection'
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
       </div>
       <TripPage />
       <DestinationSlider/>
+      <ExploreSection />
       <WhyTripSquare />
       <AdventurePoster/>
       <JourneyInFrames />

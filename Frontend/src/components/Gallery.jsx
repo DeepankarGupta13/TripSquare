@@ -91,7 +91,7 @@ export default function Gallery() {
       {/* Gallery Header */}
       <header className="header-container">
         <h1 className="gallery-title">Gallery</h1>
-        <p className="gallery-subtitle">Best of our "Kodak" Moments!</p>
+        <p className="gallery-subtitle">Best Moments!</p>
         <div className="header-underline"></div>
       </header>
 
