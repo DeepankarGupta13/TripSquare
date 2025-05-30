@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import '../styles/HoneymoonForm.css'; // Make sure to create this CSS file
+import '../styles/CorporateForm.css'; // Make sure to create this CSS file
 import { sendConfirmationEmail } from '../utilities/utils';
 
-const HoneymoonForm = () => {
+const CorporateForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    companyName: '',
+    destination: '',
   });
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false); // New state for loading
@@ -46,7 +48,7 @@ const HoneymoonForm = () => {
       }
   
       // Handle form submission logic here
-      await sendConfirmationEmail(formData, 'Honeymoon'); // Pass 'Honeymoon' as tripType
+      await sendConfirmationEmail(formData, 'Coorporate'); // Pass 'Honeymoon' as tripType
     }
     catch (error) {
       console.error('Error submitting form:', error);
@@ -73,10 +75,7 @@ const HoneymoonForm = () => {
       <div className="combined-section-left">
         {/* Top Text Section */}
         <div className="hero-text-section">
-          <h2 className="hero-heading">Love is in the Journey💕</h2>
-          <p className="hero-subheading">
-            Love & Details, Please! Let's get your dream honeymoon in the making!
-          </p>
+          <h2 className="hero-heading" style={{color: '#222'}}>Corporate Trips Made Easy 🌍</h2>
         </div>
       </div>
 
@@ -133,6 +132,36 @@ const HoneymoonForm = () => {
                 <span className="icon">📞</span>
               </div>
             </div>
+            <div className="form-group">
+              <label htmlFor="phone">Company Name</label>
+              <div className="input-with-icon">
+                <input
+                  type="text"
+                  id="comapanyName"
+                  name="companyName"
+                  placeholder="Enter your company name"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  required
+                />
+                <span className="icon">🏢</span>
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="phone">Destination</label>
+              <div className="input-with-icon">
+                <input
+                  type="text"
+                  id="destination"
+                  name="destination"
+                  placeholder="Enter destination"
+                  value={formData.destination}
+                  onChange={handleChange}
+                  required
+                />
+                <span className="icon">📍</span>
+              </div>
+            </div>
             <button 
               type="submit"
               disabled={loading}
@@ -147,18 +176,8 @@ const HoneymoonForm = () => {
           </form>
         </div>
       </div>
-
-      {/* Custom Modal */}
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <p>{modalMessage}</p>
-            <button onClick={closeModal} className="modal-close-button">Close</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
 
-export default HoneymoonForm;
+export default CorporateForm;

@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import HoneyMoonTrip from './page/HoneyMoonTrip'
 import WeekendTrip from './page/WeekendTrip'
 import FamilyTrip from './page/FamilyTrip'
+import CorporateTrip from './page/CorporateTrip'
+import PrivateTrip from './page/PrivateTrip'
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
         <Route path='/weekend-trip' element={<WeekendTrip/>} />
         <Route path='/long-trip' element={<WeekendTrip type='long'/>} />
         <Route path='/family-trip' element={<FamilyTrip />} />
+        <Route path='/corporate-trip' element={<CorporateTrip />} />
+        <Route path='/private-trip' element={<PrivateTrip />} />
       </Routes>
     </div>
   )

@@ -4,7 +4,6 @@ import { assets } from "../assets/assets";
 import { toast } from "react-toastify";
 
 export const sendConfirmationEmail = async (formData, tripType = '') => {
-    console.log('formData: ', formData);
     try {
         const mailOptions = {
             from: {
@@ -24,6 +23,8 @@ export const sendConfirmationEmail = async (formData, tripType = '') => {
                     <li>Enquiry Date: ${new Date().toLocaleDateString()}</li>
                     <li>Enquiry Time: ${new Date().toLocaleTimeString()}</li>
                     <li>Message: ${formData.message || 'Honeymoon Enquiry'}</li>
+                    ${formData.companyName ? `<li>Company Name: ${formData.companyName}</li>` : ''}
+                    ${formData.destination ? `<li>Trip Type: ${formData.destination}</li>` : ''}
                 </ul>
                 <p>Please contact user ASAP!!</p>
             `

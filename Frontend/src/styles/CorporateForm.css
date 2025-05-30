@@ -1,0 +1,20 @@
+/* General Layout */
+.combined-section-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  padding: 40px 20px;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif; /* Default font, adjust as needed */
+  position: relative; /* For the scroll arrow positioning */
+  /* background: linear-gradient(to bottom, #fff, #9fffaf, #fff); */
+  background-image: url('../assets/CorporateBg.png');
+  background-size: cover;
+}
+
+@media (max-width: 992px) {
+  .combined-section-wrapper {
+    flex-direction: column; /* Stack sections vertically */
+    padding: 20px;
+  }
+}

@@ -201,7 +201,6 @@ const Add = ({token}) => {
           token: token,
         }
       });
-      console.log('response: ', response);
 
       // Reset form after successful submission
       if (response.data.success) {

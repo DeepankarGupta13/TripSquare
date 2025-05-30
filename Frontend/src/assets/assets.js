@@ -17,8 +17,21 @@ import teamOutting from './TeamOuting.jpg';
 import privateTrip from './privateTrip.jpg';
 import WeekendTripCover from './Grp1.jpg';
 import longWeekTrip from './desert2.jpeg';
+import CorporateTrip from './teamOuting2.jpg';
+import camera from './camera.png';
+import content from './content.png';
+import house from './House.png';
+import Guide from './Guide.png';
+import Travel from './travel.png';
+import visa from './visa.png';
 
 export const assets = {
+    camera: camera,
+    content: content,
+    house: house,
+    Guide: Guide,
+    Travel: Travel,
+    visa: visa,
     logo: logo,
     phoneNumber: 9353954849,
     email: 'tripsquaredatabase@gmail.com',
@@ -38,6 +51,7 @@ export const assets = {
     privateTrip: privateTrip,
     WeekendTripCover: WeekendTripCover,
     longWeekTrip: longWeekTrip,
+    CorporateTrip: CorporateTrip
 }
 
 export const coupleImages = [

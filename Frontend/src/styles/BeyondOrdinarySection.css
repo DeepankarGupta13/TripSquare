@@ -1,0 +1,204 @@
+/* components/BeyondOrdinarySection.css */
+
+.beyond-ordinary-section {
+    font-family: Arial, sans-serif; /* Or your preferred font */
+    padding: 60px 20px;
+    background-color: #f8f9fa; /* Light background for the section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.beyond-ordinary-header {
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.beyond-ordinary-header h1 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.beyond-ordinary-header p {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.feature-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px; /* Adjust as needed */
+    width: 100%;
+    margin: 0 auto;
+    /* Add this for centering when there aren't enough items to fill a row */
+    justify-content: center;
+}
+
+.feature-card {
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left within the card */
+    text-align: left; /* Ensure text alignment is left */
+    color: #fff; /* White text for cards */
+    position: relative; /* For background patterns if needed */
+    overflow: hidden; /* To contain background patterns if they go beyond card */
+    min-height: 220px; /* Adjust as needed for consistent height */
+}
+
+.feature-card-icon {
+    width: 60px; /* Adjust icon size */
+    height: 60px; /* Adjust icon size */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.feature-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Specific background patterns - These are illustrative and assume you have SVG/PNG backgrounds */
+/* You would need to create or find these patterns and apply them as background images */
+.feature-card.pattern-1 {
+    /* Example for End to End Content */
+    background-image: url('/images/pattern-red.svg'); /* Replace with actual path */
+    background-size: cover;
+    background-position: center;
+    /* Define background colors or gradients for the actual patterns */
+    background-color: #ff6b6b; /* Example red for pattern-1 */
+}
+
+.feature-card.pattern-2 {
+    background-color: #4ecdc4; /* Example teal for pattern-2 */
+    /* background-image: url('/images/pattern-blue.svg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+.feature-card.pattern-3 {
+    background-color: #45b7d1; /* Example blue for pattern-3 */
+    /* background-image: url('/images/pattern-green.svg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+.feature-card.pattern-4 {
+    background-color: #f7b731; /* Example yellow for pattern-4 */
+}
+
+.feature-card.pattern-5 {
+    background-color: #a2d2ff; /* Example light blue for pattern-5 */
+}
+
+.feature-card.pattern-6 {
+    background-color: #e0b0ff; /* Example purple for pattern-6 */
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .beyond-ordinary-header h1 {
+        font-size: 40px;
+    }
+
+    .beyond-ordinary-header p {
+        font-size: 18px;
+    }
+
+    .feature-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        /* justify-content: center;  Already defined in base styles, but good to ensure if it was removed */
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    .feature-card h3 {
+        font-size: 22px;
+    }
+
+    .feature-card p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .beyond-ordinary-section {
+        padding: 40px 15px;
+    }
+
+    .beyond-ordinary-header h1 {
+        font-size: 32px;
+    }
+
+    .beyond-ordinary-header p {
+        font-size: 16px;
+    }
+
+    .feature-cards-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        gap: 20px;
+        justify-items: center; /* Centers the single column item within its grid cell */
+    }
+
+    .feature-card {
+        padding: 20px;
+        align-items: center; /* Center text on stacked cards */
+        text-align: center;
+        /* width: 100%; Ensure card takes full width minus padding within its grid cell */
+        margin: 0% 5vw;
+        max-width: 350px; /* Limit the card width for very narrow screens for better appearance */
+    }
+
+    .feature-card-icon {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .beyond-ordinary-section {
+        padding: 30px 10px;
+    }
+
+    .beyond-ordinary-header h1 {
+        font-size: 28px;
+    }
+
+    .beyond-ordinary-header p {
+        font-size: 14px;
+    }
+
+    .feature-card h3 {
+        font-size: 20px;
+    }
+
+    .feature-card p {
+        font-size: 14px;
+    }
+}

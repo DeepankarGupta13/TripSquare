@@ -57,8 +57,6 @@ const TripPage = ({ filter='all' }) => {
                         // Extract the number of days from the duration string (e.g., "3D/2N")
                         const match = trip.duration && trip.duration.match(/^(\d+)/);
                         const days = match ? parseInt(match[1], 10) : 0;
-                        console.log('days: ', days);
-                        console.log('days > 3: ', days > 3);
                         return days > 3;
                     });
                     setTrips(longTrip);

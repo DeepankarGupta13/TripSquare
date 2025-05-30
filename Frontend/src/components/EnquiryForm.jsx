@@ -33,7 +33,6 @@ function App({tripType = ''}) {
         }
         try {
             // In a real application, you would send this data to a backend server
-            console.log('Form submitted:', { name, email, phone, message });
             await sendConfirmationEmail({ name, email, phone, message }, tripType);
         }
         catch (error) {

@@ -157,12 +157,14 @@ function ExploreSection() {
 
           {/* Explore Card */}
           <TripCard
+            func={() => navigate('/corporate-trip')}
             imageUrl={assets.teamOutting}
             title="Coorporate Trips"
           />
           
           {/* Explore Card */}
           <TripCard
+            func={() => navigate('/private-trip')}
             imageUrl={assets.privateTrip}
             title="Private Trips"
           />
