@@ -73,6 +73,15 @@ export const familyTripImages = [
     'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748614292/WhatsApp_Image_2025-05-23_at_22.25.20_2_jizswj.jpg',
 ]
 
+export const privateTripImages = [
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748639680/private5_mg4xqm.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748115258/anik1qm8pthgcdj0xv1v.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748115258/e8d3fegrz46j1lyjba5d.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748639404/grp_mznrpa.jpg',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748639679/private5_bwrbw9.webp',
+    'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748639677/private6_oijqgv.webp',
+]
+
 export const months = {
     1: [],
     2: [],

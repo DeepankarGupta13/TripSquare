@@ -1,0 +1,269 @@
+/* Base styles for larger screens */
+.private-trips-container {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background-color: #f4f4f4;
+    max-width: 1200px; /* Limit overall width for better readability on very wide screens */
+    margin: 0 auto; /* Center the container */
+}
+
+.private-trips-header h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5em; /* Adjust font size for larger screens */
+}
+
+.intro-text-wrapper {
+    max-height: 120px; /* Adjust based on how much text you want to show initially (~100 words) */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out; /* Smooth transition for expansion/collapse */
+}
+
+.intro-text-wrapper.expanded {
+    max-height: fit-content; /* Allow content to expand fully */
+    overflow: visible;
+}
+
+.intro-paragraph {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.read-more-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: #0AA84E; /* Blue text color */
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0; /* Remove default padding */
+    text-decoration: underline; /* Underline to make it look like a link */
+    margin-top: 10px; /* Space between text and button */
+    display: block; /* Ensures button takes full width and starts on a new line */
+    text-align: center; /* Center the button */
+    font-weight: bold; /* Make it slightly bolder */
+}
+
+.read-more-btn:hover {
+    color: #0AA84E; /* Darker blue on hover */
+    text-decoration: none; /* Remove underline on hover for a subtle effect */
+}
+
+
+.private-trips-content {
+    margin-top: 30px;
+}
+
+.why-choose-us h2,
+.hassle-free-planning h2,
+.our-private-services h2,
+.contact-us-section h2 {
+    color: #333;
+    margin-top: 40px; /* Slightly more spacing */
+    margin-bottom: 20px;
+    text-align: center; /* Center section headings */
+    font-size: 2em;
+}
+
+.why-choose-us p,
+.hassle-free-planning p,
+.contact-us-section p {
+    color: #555;
+    line-height: 1.7; /* Slightly more line height for readability */
+    margin-bottom: 15px;
+    font-size: 1.05em;
+}
+
+.contact-call-to-action {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0AA84E;
+    text-align: center;
+    margin-top: 25px;
+}
+
+
+.private-service-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Slightly increased gap */
+    margin-top: 20px;
+    justify-content: center; /* Center cards when there aren't enough to fill a row */
+}
+
+.private-service-card {
+    background-color: #fff;
+    padding: 25px; /* Slightly more padding */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.private-service-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.private-service-card .service-icon { /* Specificity for icon inside this card */
+    font-size: 2.5em; /* Larger icons */
+    color: #0AA84E; /* Primary color for icons */
+    margin-bottom: 15px;
+}
+
+.private-service-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.private-service-card p {
+    color: #555;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+/* --- Media Queries --- */
+
+/* For screens smaller than 1024px (e.g., large tablets, smaller desktops) */
+@media (max-width: 1024px) {
+    .private-trips-container {
+        padding: 30px;
+    }
+
+    .private-trips-header h1 {
+        font-size: 2.2em;
+    }
+
+    .intro-paragraph {
+        font-size: 1em;
+    }
+
+    .why-choose-us h2,
+    .hassle-free-planning h2,
+    .our-private-services h2,
+    .contact-us-section h2 {
+        font-size: 1.8em;
+    }
+
+    .private-service-cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .private-service-card {
+        padding: 25px;
+    }
+
+    .private-service-card h3 {
+        font-size: 1.2em;
+    }
+
+    .private-service-card p {
+        font-size: 0.9em;
+    }
+}
+
+/* For screens smaller than 768px (e.g., tablets) */
+@media (max-width: 768px) {
+    .private-trips-container {
+        padding: 20px;
+    }
+
+    .private-trips-header h1 {
+        font-size: 2em;
+        text-align: left; /* Align header to left for better mobile flow */
+    }
+
+    .intro-paragraph {
+        font-size: 0.95em;
+    }
+
+    .why-choose-us h2,
+    .hassle-free-planning h2,
+    .our-private-services h2,
+    .contact-us-section h2 {
+        font-size: 1.6em;
+        text-align: left; /* Align section headings to left */
+    }
+
+    .why-choose-us p,
+    .hassle-free-planning p,
+    .contact-us-section p {
+        font-size: 0.9em;
+    }
+
+    .private-service-cards-container {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+        gap: 15px;
+        justify-items: center; /* Centers the single column item within its grid cell */
+    }
+
+    .private-service-card {
+        padding: 20px;
+        width: 100%; /* Ensure card takes full width minus padding within its grid cell */
+        max-width: 350px; /* Limit the card width for very narrow screens for better appearance */
+    }
+
+    .private-service-card .service-icon {
+        font-size: 2em;
+    }
+
+    .private-service-card h3 {
+        font-size: 1.15em;
+    }
+
+    .private-service-card p {
+        font-size: 0.85em;
+    }
+}
+
+/* For screens smaller than 480px (e.g., mobile phones) */
+@media (max-width: 480px) {
+    .private-trips-container {
+        padding: 15px;
+    }
+
+    .private-trips-header h1 {
+        font-size: 1.8em;
+    }
+
+    .intro-paragraph {
+        font-size: 0.85em;
+    }
+
+    .why-choose-us h2,
+    .hassle-free-planning h2,
+    .our-private-services h2,
+    .contact-us-section h2 {
+        font-size: 1.4em;
+    }
+
+    .why-choose-us p,
+    .hassle-free-planning p,
+    .contact-us-section p {
+        font-size: 0.8em;
+    }
+
+    .private-service-card {
+        padding: 15px;
+    }
+
+    .private-service-card .service-icon {
+        font-size: 1.8em;
+    }
+
+    .private-service-card h3 {
+        font-size: 1.05em;
+    }
+
+    .private-service-card p {
+        font-size: 0.8em;
+    }
+
+    .contact-call-to-action {
+        font-size: 1em;
+    }
+}

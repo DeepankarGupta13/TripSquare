@@ -4,7 +4,6 @@ import { assets } from '../assets/assets';
 import ImageScreen from '../components/ImageScreen';
 import Navbar from '../components/Navbar';
 import WhyTripSquare from '../components/WhyTripSquare ';
-import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
 import EnquiryForm from '../components/EnquiryForm';
 import BeyondOrdinarySection from '../components/BeyondOrdinarySection';
