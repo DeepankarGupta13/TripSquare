@@ -13,7 +13,7 @@ const BookingForm = ({ item }) => {
         phone: '',
         travelDate: '',
         travellers: 1,
-        tripType: 'Group Trip', // Default trip type
+        tripType: basePrice > 0 ? 'Group Trip' : 'Private/Family Trip', // Default trip type
         agreeTerms: false,
         trip: {},
     });
@@ -21,7 +21,7 @@ const BookingForm = ({ item }) => {
 
     // Filter function to only allow Fridays
     const isFriday = (date) => {
-        return date.getDay() === 5; // 5 is Friday
+        return basePrice > 0 ? date.getDay() === 5 : true; // 5 is Friday
     };
 
     const handleChange = (e) => {
@@ -33,12 +33,21 @@ const BookingForm = ({ item }) => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        formData.trip = item;
-        navigate('/checkout', { state: formData });
+        if (formData.tripType === 'Group Trip' && formData.travellers > 5) {
+            e.preventDefault();
+            formData.trip = item;
+            navigate('/checkout', { state: formData });
+        } else {
+            window.open(whatsappUrl, '_blank');
+        }
     };
 
-    const whatsappMessage = `Hi, I'm interested in booking ${item.title} for ${formData.travellers} people. Please contact me.`;
+    const whatsappMessage = `Hi, ${formData.fullName ? `I'm ${formData.fullName}, ` : ''
+        }I'm interested in booking a ${formData.tripType} to ${item.name} for ${formData.travellers
+        } people${formData.travelDate ? ` on ${formData.travelDate}` : ''
+        }. Please contact me${formData.phone ? ` on my phone at ${formData.phone}` : ''
+        }${formData.email ? `${formData.phone ? ' or' : ''} via email at ${formData.email}` : ''
+        }.`;
     const whatsappUrl = `https://wa.me/${assets.phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     const isGroupTripWithFewPeople = (formData.tripType === 'Group Trip' && formData.travellers < 5) || (formData.tripType !== 'Group Trip');
@@ -85,7 +94,7 @@ const BookingForm = ({ item }) => {
                         onChange={handleChange}
                         required
                     >
-                        <option value="Group Trip">Group Trip</option>
+                        {basePrice > 0 ? <option value="Group Trip">Group Trip</option> : null}
                         <option value="Private/Family Trip">Private/Family Trip</option>
                         <option value="Co-orporate Trip">Co-orporate Trip</option>
                         <option value="HoneyMoon">HoneyMoon</option>
@@ -126,12 +135,18 @@ const BookingForm = ({ item }) => {
                         value={formData.travellers}
                         onChange={handleChange}
                     />
-                    <span className="price-display">{formData.travellers} x ₹{basePrice}/-</span>
+                    { basePrice > 0 ? <span className="price-display">{formData.travellers} x ₹{basePrice}/-</span> : null }
                 </div>
-                <div className="form-group total-amount">
-                    <label>Total Amount:</label>
-                    <span>₹{formData.travellers * basePrice}/-</span>
-                </div>
+                {basePrice > 0 ? (
+                    <div className="form-group total-amount">
+                        <label>Total Amount:</label>
+                        <span>₹{formData.travellers * basePrice}/-</span>
+                    </div>
+                ) : (
+                    <div className="form-group total-amount">
+                        <span>Personalized to Match Your Travel Style</span>
+                    </div>
+                )}
                 <div className="form-group checkbox-group">
                     <input
                         type="checkbox"

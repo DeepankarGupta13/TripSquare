@@ -8,7 +8,9 @@ const PickupDrop = ({tripData}) => {
   const duration = tripData.duration;
 
   return (
-    <>
+    <> 
+    {
+      tripData.price > 0 ?
       <div className="location-Conatiner">
         <img src={assets.pathLogo} alt="" />
         <div className='loacation-details'>
@@ -19,7 +21,8 @@ const PickupDrop = ({tripData}) => {
             <p htmlFor="drop">Drop: {drop}</p>
           </div>
         </div>
-      </div>
+      </div> : null
+    }
       <div className="location-Conatiner">
         <img src={assets.timeSheet} alt="" />
         <div className='loacation-details'>

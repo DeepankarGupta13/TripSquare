@@ -32,7 +32,7 @@ const Trip = () => {
         setError(null);
 
         // Add a small delay to ensure the API is ready (if needed)
-        const trips = await getTrips(); // Fix the typo here if it's getTrips vs getTrips
+        const trips = await getTrips();
 
         if (!trips || !Array.isArray(trips)) {
           throw new Error('Invalid trips data received');
