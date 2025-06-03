@@ -18,6 +18,7 @@ const BookingForm = ({ item }) => {
         trip: {},
     });
     const navigate = useNavigate();
+    const [address, setAddress] = useState('');
 
     // Filter function to only allow Fridays
     const isFriday = (date) => {
@@ -30,6 +31,11 @@ const BookingForm = ({ item }) => {
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
+    };
+
+    const handleAddressChange = (e) => {
+        const { value } = e.target;
+        setAddress(value);
     };
 
     const handleSubmit = (e) => {
@@ -47,6 +53,7 @@ const BookingForm = ({ item }) => {
         } people${formData.travelDate ? ` on ${formData.travelDate}` : ''
         }. Please contact me${formData.phone ? ` on my phone at ${formData.phone}` : ''
         }${formData.email ? `${formData.phone ? ' or' : ''} via email at ${formData.email}` : ''
+        }${address ? `. I would like my trip to start from ${address}` : ''
         }.`;
     const whatsappUrl = `https://wa.me/${assets.phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -126,6 +133,19 @@ const BookingForm = ({ item }) => {
                         required
                     />
                 </div>
+                {
+                    basePrice == 0 ?
+                    <div className="form-group">
+                    <label>Address</label>
+                    <input
+                        type="text"
+                        name="travellers"
+                        min="1"
+                        value={formData.address}
+                        onChange={handleAddressChange}
+                    />
+                    </div> : null
+                }
                 <div className="form-group">
                     <label>Travellers</label>
                     <input
