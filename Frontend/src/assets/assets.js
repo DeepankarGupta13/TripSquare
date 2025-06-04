@@ -34,7 +34,7 @@ export const assets = {
     visa: visa,
     logo: logo,
     phoneNumber: 9353954849,
-    email: 'tripsquaredatabase@gmail.com',
+    email: 'teamtripsquare@gmail.com',
     search: search,
     videoLink: video1,
     map: map,

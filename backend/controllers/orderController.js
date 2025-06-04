@@ -43,7 +43,6 @@ const sendEmail = async (req, res) => {
 }
 
 const sendConfirmationEmail = async (order) => {
-    console.log('order: ', order);
     try {
         const mailOptions = {
             from: {
