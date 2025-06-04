@@ -15,6 +15,7 @@ import { useApi } from '../context/ApiContext';
 import Map from '../components/Map';
 import Video from '../components/Video';
 import ReviewCards from '../components/ReviewCards';
+import { assets } from '../assets/assets';
 
 const Trip = () => {
   const { tripId } = useParams();
@@ -99,6 +100,7 @@ const Trip = () => {
         <div className='Details-Trip'>
           <PickupDrop tripData={tripData} />
         </div>
+        <button onClick={() => window.open(`https://wa.me/${assets.phoneNumber}?text=Hello, I Want to Book a Private Trip to ${tripData.name}`, '_blank')} className="book-now-btn" style={{ marginTop: '10vh' }}>Request a Callback</button>
       </div>
       <Map trips={tripData} />
       <div className='span'>
