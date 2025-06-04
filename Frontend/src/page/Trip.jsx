@@ -100,7 +100,9 @@ const Trip = () => {
         <div className='Details-Trip'>
           <PickupDrop tripData={tripData} />
         </div>
-        <button onClick={() => window.open(`https://wa.me/${assets.phoneNumber}?text=Hello, I Want to Book a Private Trip to ${tripData.name}`, '_blank')} className="book-now-btn" style={{ marginTop: '10vh' }}>Request a Callback</button>
+        { tripData.price == 0 ?
+          <button onClick={() => window.open(`https://wa.me/${assets.phoneNumber}?text=Hello, I Want to Book a Private Trip to ${tripData.name}`, '_blank')} className="book-now-btn" style={{ marginTop: '10vh' }}>Request a Callback</button> : null
+        }
       </div>
       <Map trips={tripData} />
       <div className='span'>
