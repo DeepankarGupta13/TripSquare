@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { assets, privateTripImages } from '../assets/assets'
 import Navbar from '../components/Navbar'
 import ContactStickyButton from '../components/ContactStickyButton'
@@ -11,6 +11,9 @@ import EnquiryForm from '../components/EnquiryForm'
 import PrivateTripForm from '../components/PrivateTripForm'
 
 const PrivateTrip = () => {
+  useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <div>
       <ContactStickyButton />
