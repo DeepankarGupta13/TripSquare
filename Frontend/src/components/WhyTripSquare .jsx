@@ -87,10 +87,6 @@ const WhyTripSquare = () => {
     <div className="why-tripsquare-container">
       <div className="why-tripsquare-header">
         <h1 className="why-tripsquare-title">Why Trip Square?</h1>
-        <h2 className="why-tripsquare-subtitle">No Third Party Mess</h2>
-        <p className="why-tripsquare-description">
-          100 percent in-house operations for all trips! No third parties involved, hence no fishy claims!
-        </p>
       </div>
 
       <div className="slider-container">

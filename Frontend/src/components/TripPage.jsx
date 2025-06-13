@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useApi } from '../context/ApiContext';
 import { months } from '../assets/assets';
 
-const TripPage = ({ filter='all' }) => {
+const TripPage = ({ filter = 'all' }) => {
     const navigate = useNavigate();
     const { getTrips } = useApi();
     const [trips, setTrips] = useState([]);
@@ -13,13 +13,13 @@ const TripPage = ({ filter='all' }) => {
     const [error, setError] = useState(null);
     const [selectedMonth, setSelectedMonth] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
-    
+
     // Generate months starting from current month
     const generateMonths = () => {
         const months = [];
         const date = new Date();
         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        
+
         // Always show current month + next 6 months (7 total)
         for (let i = 0; i < 7; i++) {
             const monthIndex = (date.getMonth() + i) % 12;
@@ -29,7 +29,7 @@ const TripPage = ({ filter='all' }) => {
                 value: monthIndex + 1 // Month number (1-12)
             });
         }
-        
+
         return months;
     };
 
@@ -51,7 +51,7 @@ const TripPage = ({ filter='all' }) => {
                     });
                     setTrips(weekendTrips);
                     setFilteredTrips(weekendTrips);
-                } else if (filter === 'long') { 
+                } else if (filter === 'long') {
                     // Filter trips for weekend getaways
                     const longTrip = tripsData.filter(trip => {
                         // Extract the number of days from the duration string (e.g., "3D/2N")
@@ -87,23 +87,46 @@ const TripPage = ({ filter='all' }) => {
 
     // Filter trips based on selected month
     useEffect(() => {
+        let filtered = trips;
         if (!selectedMonth) {
-            setFilteredTrips(trips);
-            setCurrentPage(0);
-            return;
+            const date = new Date();
+            const currentMonth = date.getMonth();
+
+            // Get the places for the selected currentMonth
+            let monthPlaces = []
+            for (let i = currentMonth; i < currentMonth + 12; i++) {
+                const places = months[(i % 12) + 1];
+                for (let j = 0; j < places.length; j++) {
+                    if (!monthPlaces.includes(places[j])) monthPlaces.push(places[j]);
+                }
+            }
+
+            const orderedTrip = []
+            monthPlaces.forEach(place => {
+                // Check if any of the month places is included in the place name (case insensitive)
+                return trips.some(trip => {
+                    if (trip.name.toLowerCase().includes(place.toLowerCase())) {
+                        orderedTrip.push(trip)
+                        return;
+                    }
+                });
+            });
+            filtered = orderedTrip;
         }
 
-        const filtered = trips.filter(trip => {
-            if (!trip.name) return false;
+        else {
+            filtered = trips.filter(trip => {
+                if (!trip.name) return false;
 
-            // Get the places for the selected month
-            const monthPlaces = months[selectedMonth.value] || [];
+                // Get the places for the selected month
+                const monthPlaces = months[selectedMonth.value] || [];
 
-            // Check if any of the month places is included in the trip name (case insensitive)
-            return monthPlaces.some(place =>
-                trip.name.toLowerCase().includes(place.toLowerCase())
-            );
-        });
+                // Check if any of the month places is included in the trip name (case insensitive)
+                return monthPlaces.some(place =>
+                    trip.name.toLowerCase().includes(place.toLowerCase())
+                );
+            });
+        }
 
         setFilteredTrips(filtered);
         setCurrentPage(0);
@@ -170,7 +193,7 @@ const TripPage = ({ filter='all' }) => {
                     >
                         All
                     </button>
-                    
+
                     {(showAllMonths ? visibleMonths : visibleMonths.slice(0, 4)).map((month) => (
                         <button
                             key={month.name}
@@ -181,7 +204,7 @@ const TripPage = ({ filter='all' }) => {
                         </button>
                     ))}
                     {!showAllMonths && visibleMonths.length > 4 && (
-                        <button 
+                        <button
                             className="month-button more-button"
                             onClick={() => setShowAllMonths(true)}
                         >
@@ -189,7 +212,7 @@ const TripPage = ({ filter='all' }) => {
                         </button>
                     )}
                     {showAllMonths && (
-                        <button 
+                        <button
                             className="month-button less-button"
                             onClick={() => setShowAllMonths(false)}
                         >
@@ -209,9 +232,9 @@ const TripPage = ({ filter='all' }) => {
                         {groupTripsIntoRows(getCurrentPageTrips()).map((row, rowIndex) => (
                             <div key={rowIndex} className="trips-row">
                                 {row.map((card, cardIndex) => (
-                                    <div 
-                                        key={cardIndex} 
-                                        onClick={() => handleClick(card._id)} 
+                                    <div
+                                        key={cardIndex}
+                                        onClick={() => handleClick(card._id)}
                                         className="travel-card"
                                     >
                                         <img src={card.pic} alt={card.name} className="card-image" />
@@ -227,20 +250,20 @@ const TripPage = ({ filter='all' }) => {
                     </div>
 
                     <div className="pagination-controls">
-                        <button 
-                            onClick={handlePrevPage} 
+                        <button
+                            onClick={handlePrevPage}
                             disabled={currentPage === 0}
                             className="pagination-button"
                         >
                             ◄
                         </button>
-                        
+
                         <div className="page-indicator">
                             Page {currentPage + 1} of {totalPages}
                         </div>
-                        
-                        <button 
-                            onClick={handleNextPage} 
+
+                        <button
+                            onClick={handleNextPage}
                             disabled={currentPage >= totalPages - 1}
                             className="pagination-button"
                         >

@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../styles/DestinationSlider.css';
 import { useApi } from '../context/ApiContext';
 import { useNavigate } from 'react-router-dom';
+import { months } from '../assets/assets';
 
 const DestinationSlider = () => {
   const { getTrips } = useApi(); // Get the API methods from context
-  const [trips, setTrips] = useState([]); // State to store trips
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
   const navigate = useNavigate(); // Hook to navigate to different routes
+  const [filteredTrips, setFilteredTrips] = useState([]);
 
   const sliderRef = useRef(null);
 
@@ -33,7 +34,30 @@ const DestinationSlider = () => {
     const fetchTrips = async () => {
       try {
         let tripsData = await getTrips();
-        setTrips(tripsData);
+        const date = new Date();
+        const currentMonth = date.getMonth();
+
+        // Get the places for the selected currentMonth
+        let monthPlaces = []
+        for (let i = currentMonth; i < currentMonth + 12; i++) {
+          const places = months[(i % 12) + 1];
+          for (let j = 0; j < places.length; j++) {
+            if (!monthPlaces.includes(places[j])) monthPlaces.push(places[j]);
+          }
+        }
+
+        const orderedTrip = []
+        monthPlaces.forEach(place => {
+          // Check if any of the month places is included in the place name (case insensitive)
+          return tripsData.some(trip => {
+            if (trip.name.toLowerCase().includes(place.toLowerCase())) {
+              orderedTrip.push(trip)
+              return;
+            }
+          });
+        });
+
+        setFilteredTrips(orderedTrip);
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -52,19 +76,19 @@ const DestinationSlider = () => {
     return <div className="scroller-container">Error: {error}</div>;
   }
 
-  if (trips.length === 0) {
+  if (filteredTrips.length === 0) {
     return <div className="scroller-container">No trips available</div>;
   }
 
   return (
     <div className="destination-slider-container">
-      <h2 className="section-title">Recommended Trips (Seasonal Trip)</h2>
+      <h2 className="section-title">Seasonal Trip</h2>
       <div className="slider-controls">
         <button className="nav-button prev" onClick={scrollLeft}>
           &lt;
         </button>
         <div className="destinations-slider" ref={sliderRef}>
-          {trips.map((destination, index) => (
+          {filteredTrips.map((destination, index) => (
             <div key={index} className="destination-card" onClick={() => handleCardClick(destination)}>
               <div className="circle-image-container">
                 <img
