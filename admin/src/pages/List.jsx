@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { backendUrl, currency } from '../App';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const List = ({ token }) => {
   const [list, setList] = useState([]);
+  const navigate = useNavigate();
 
   const fetchList = async () => {
     try {
@@ -37,6 +39,10 @@ const List = ({ token }) => {
       toast.error(error.message)
     }
   }
+  
+  const updateTrip = (id) => {
+    navigate(`/update/${id}`);
+  }
 
   return (
     <>
@@ -58,6 +64,7 @@ const List = ({ token }) => {
               <p>{ ele.name }</p>
               <p>{ currency } { ele.price }</p>
               <p>{ ele.duration }</p>
+              <p onClick={() => updateTrip(ele._id)}>Edit</p>
               <p onClick={() => removeTrip(ele._id)} className='text-right md:text-center cursor-pointer text-lg'>X</p>
             </div>
           ))
