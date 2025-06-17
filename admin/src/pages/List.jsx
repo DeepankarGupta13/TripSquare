@@ -49,7 +49,7 @@ const List = ({ token }) => {
       <p className='mb-2 '>All Product List</p>
       <div className='flex flex-col gap-2'>
         {/* --------------table title ---------------- */}
-        <div className='hidden md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-1 px-2 border bg-gray-200 text-sm'>
+        <div className='hidden md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr_1fr] items-center py-1 px-2 border bg-gray-200 text-sm'>
           <p>Image</p>
           <p>Name</p>
           <p>Price</p>
@@ -59,13 +59,18 @@ const List = ({ token }) => {
         {/* -------------table content---------------- */}
         {
           list.map((ele, index) =>(
-            <div className='grid grid-cols-[1fr_3fr_1fr] md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-1 px-2 border text-sm' key={index}>
+            <div className='grid grid-cols-[1fr_3fr_1fr] md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr_1fr] items-center py-1 px-2 border text-sm' key={index}>
               <img className='w-12' src={ele.images[0]} alt="" />
               <p>{ ele.name }</p>
               <p>{ currency } { ele.price }</p>
               <p>{ ele.duration }</p>
-              <p onClick={() => updateTrip(ele._id)}>Edit</p>
-              <p onClick={() => removeTrip(ele._id)} className='text-right md:text-center cursor-pointer text-lg'>X</p>
+              <p
+                onClick={() => updateTrip(ele._id)}
+                className='text-green-500 cursor-pointer'
+              >
+                Edit
+              </p>
+              <p onClick={() => removeTrip(ele._id)} className='text-right md:text-center text-red-500 cursor-pointer text-lg'>X</p>
             </div>
           ))
         }
