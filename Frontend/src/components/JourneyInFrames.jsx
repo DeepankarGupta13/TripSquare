@@ -5,64 +5,20 @@ import { familyTripImages, privateTripImages } from '../assets/assets';
 const JourneyInFrames = () => {
   const photos = [
     {
-      url: familyTripImages[0],
-      alt: 'Vietnam landscape'
+      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750097391/WhatsApp_Image_2025-06-16_at_23.37.35_1_ysbb1h.jpg',
+      alt: 'Ooty'
     },
     {
-      url: familyTripImages[1],
-      alt: 'Dubai skyline'
+      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750097391/WhatsApp_Image_2025-06-16_at_23.37.35_kwbi3d.jpg',
+      alt: 'Coorg'
     },
     {
-      url: familyTripImages[2],
-      alt: 'Bhutan monastery'
+      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750097390/WhatsApp_Image_2025-06-16_at_23.37.36_1_wtzr90.jpg',
+      alt: 'Kodaikanal'
     },
     {
-      url: familyTripImages[4],
-      alt: 'Kerala backwaters'
-    },
-    {
-      url: familyTripImages[5],
-      alt: 'Himalayan mountains'
-    },
-    {
-      url: privateTripImages[0],
-      alt: 'Goa beach sunset'
-    },
-    {
-      url: privateTripImages[3],
-      alt: 'Adventure trip in New Zealand'
-    },
-    {
-      url: privateTripImages[4],
-      alt: 'Private trip in Bali'
-    },
-    {
-      url: privateTripImages[5],
-      alt: 'Private trip in Maldives'
-    },
-    {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748641208/IMG_20241101_162539_n2hmtg.jpg',
-      alt: '',
-    },
-    {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748641197/IMG_20240501_110248_742_wc8fo3.webp',
-      alt: ''
-    },
-    {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748641191/IMG_20231029_160119_377_n4lxwz.webp',
-      alt: ''
-    },
-    {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748641196/IMG_20231030_191512_356_mn8ixt.webp',
-      alt: ''
-    },
-    {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748641176/iftekhar-nibir-XKCFg-wJx8M-unsplash_lprzfe.jpg',
-      alt: ''
-    },
-    {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1748641168/amit-gupta-v4YWEXgAFok-unsplash_utvh8y.jpg',
-      alt: ''
+      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750097390/WhatsApp_Image_2025-06-16_at_23.37.36_pve9nr.jpg',
+      alt: 'Munnar'
     },
   ];
 
@@ -115,8 +71,8 @@ const JourneyInFrames = () => {
     <div className="slider-container">
 
       <div className="slider-header">
-        <h1 className="slider-title">JOURNEY IN FRAMES</h1>
-        <p className="slider-subtitle">Pictures Perfect Moments</p>
+        <h1 className="slider-title">FRAMING MEMORIES</h1>
+        <p className="slider-subtitle">Frames</p>
       </div>
 
       <div 
@@ -140,14 +96,13 @@ const JourneyInFrames = () => {
             />
           </div>
         ))}
-        
-        <button className="slider-button prev" onClick={goToPrevious}>
+      </div>
+      <button className="slider-button prev" onClick={goToPrevious}>
           &#10094;
         </button>
         <button className="slider-button next" onClick={goToNext}>
           &#10095;
         </button>
-      </div>
     </div>
   );
 };

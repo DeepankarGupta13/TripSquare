@@ -30,9 +30,11 @@
 
 .slider {
   position: relative;
-  height: 500px;
-  width: 100%;
+  height: 720px;
+  width: 540px;
   display: flex;
+  margin: 0 auto;
+  margin-bottom: 50px ;
 }
 
 .slide {
@@ -52,13 +54,17 @@
 .slide-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:cover;
   display: block;
+  border: 10px solid transparent;
+  border-image: linear-gradient(to right, #ead6a8, #efba70);
+  outline: 3px solid black;
+  border-image-slice: 1;
 }
 
 /* Navigation Buttons */
 .slider-button {
-  position: absolute;
+  position: relative;
   top: 50%;
   transform: translateY(-50%);
   width: 50px;
@@ -73,17 +79,15 @@
   transition: background-color 0.3s;
 }
 
-.slider-button:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.slider-button.prev {
-  left: 20px;
+/* .slider-button.prev {
+  position: absolute;
+  left: 0px;
 }
 
 .slider-button.next {
-  right: 20px;
-}
+  position: absolute;
+  right: 0px;
+} */
 
 /* Dots Navigation */
 .dots-container {
@@ -111,6 +115,9 @@
 @media (max-width: 768px) {
   .slider {
     height: 400px;
+    width: 300px;
+    margin: 0 4vw;
+    margin-bottom: 30px;
   }
   
   .slider-button {
@@ -122,12 +129,13 @@
 
 @media (max-width: 480px) {
   .slider {
-    height: 300px;
+    height: 400px;
+    width: 300px;
   }
   
   .slider-button {
     width: 35px;
-    height: 35px;
+    height: 50px;
     font-size: 1rem;
   }
   
