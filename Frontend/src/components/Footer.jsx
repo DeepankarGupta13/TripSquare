@@ -1,7 +1,8 @@
 import React from 'react';
-import { FaInstagram, FaEnvelope, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaPhone, FaWhatsapp, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import '../styles/Footer.css';
-import { assets } from '../assets/assets.js'
+import { assets } from '../assets/assets.js';
 
 const Footer = () => {
   return (
@@ -39,12 +40,19 @@ const Footer = () => {
             <a href={assets.whatsappLink} className="social-link">
               <FaWhatsapp className="social-icon" />
             </a>
+            <a href={assets.twitterLink} className="social-link">
+              <FaXTwitter className="social-icon" />
+            </a>
+            <a href={assets.facebookLink} className="social-link">
+              <FaFacebook className="social-icon" />
+            </a>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} TripSquare. All rights reserved.</p>
+        <p>GSTIN 17MFXPS7893R1ZB</p>
       </div>
     </footer>
   );
