@@ -26,12 +26,12 @@ const JourneyInFrames = () => {
       alt: 'Kerela'
     },
     {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750622168/Black_and_White_Space_Blank_Document_4_j7udec.png',
-      alt: 'Hampi',
+      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750621532/Black_and_White_Space_Blank_Document_6_tlgs0g.png',
+      alt: 'Sikkim'
     },
     {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750621532/Black_and_White_Space_Blank_Document_6_tlgs0g.png',
-      alt: 'Meghalaya'
+      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750622168/Black_and_White_Space_Blank_Document_4_j7udec.png',
+      alt: 'Hampi',
     },
     {
       url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750621535/Black_and_White_Space_Blank_Document_7_czuhx4.png',
