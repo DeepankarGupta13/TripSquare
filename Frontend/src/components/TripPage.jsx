@@ -105,7 +105,7 @@ const TripPage = ({ filter = 'all' }) => {
             monthPlaces.forEach(place => {
                 // Check if any of the month places is included in the place name (case insensitive)
                 return trips.some(trip => {
-                    if (trip.name.toLowerCase().includes(place.toLowerCase())) {
+                    if (trip.name.toLowerCase().includes(place.toLowerCase()) && !orderedTrip.some(t => t.name.toLowerCase() === trip.name.toLowerCase())) {
                         orderedTrip.push(trip)
                         return;
                     }
