@@ -111,6 +111,13 @@ const TripPage = ({ filter = 'all' }) => {
                     }
                 });
             });
+
+            trips.forEach(trip => {
+                if (!orderedTrip.some(t => t.name.toLowerCase() === trip.name.toLowerCase())) {
+                    orderedTrip.push(trip);
+                }
+            });
+
             filtered = orderedTrip;
         }
 
