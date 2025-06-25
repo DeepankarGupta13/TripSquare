@@ -101,7 +101,7 @@ const Trip = () => {
           <PickupDrop tripData={tripData} />
         </div>
         { tripData.price == 0 ?
-          <button onClick={() => window.open(`https://wa.me/${assets.phoneNumber}?text=Hello, I Want to Book a Private Trip to ${tripData.name}`, '_blank')} className="book-now-btn" style={{ marginTop: '10vh' }}>Request a Callback</button> : null
+          <button onClick={() => window.open(`https://wa.me/${assets.phoneNumber}?text=Hello, I Want to Book a Private Trip to ${tripData.name}`, '_blank')} className="book-now-btn" style={{ marginTop: '5vh' }}>Request a Callback</button> : null
         }
       </div>
       <Map trips={tripData} />
