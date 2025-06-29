@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/PrivateTripForm.css'; // Make sure to create this CSS file
 import { sendConfirmationEmail } from '../utilities/utils';
 
-const CorporateForm = () => {
+const CorporateForm = ({destination = ''}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,6 +41,9 @@ const CorporateForm = () => {
     e.preventDefault();
     setLoading(true); // Set loading to true when submission starts
     try {
+      if (destination) {
+        formData.destination = destination; // Set destination if provided
+      }
       // Basic validation before submission
       if (!/^\d+$/.test(formData.phone)) {
         setModalMessage('Please enter a valid phone number (digits only).');
@@ -150,21 +153,21 @@ const CorporateForm = () => {
                 <span className="icon">👩‍👧‍👦</span>
               </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="phone">Destination</label>
-              <div className="input-with-icon">
-                <input
-                  type="text"
-                  id="destination"
-                  name="destination"
-                  placeholder="Enter destination / if not sure, write 'Not Sure'"
-                  value={formData.destination}
-                  onChange={handleChange}
-                  required
-                />
-                <span className="icon">📍</span>
-              </div>
-            </div>
+            { !destination ? <div className="form-group">
+                <label htmlFor="phone">Destination</label>
+                <div className="input-with-icon">
+                  <input
+                    type="text"
+                    id="destination"
+                    name="destination"
+                    placeholder="Enter destination / if not sure, write 'Not Sure'"
+                    value={formData.destination}
+                    onChange={handleChange}
+                    required
+                  />
+                  <span className="icon">📍</span>
+                </div>
+              </div> : null }
             <button 
               type="submit"
               disabled={loading}

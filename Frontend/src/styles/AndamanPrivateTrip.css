@@ -1,0 +1,97 @@
+.andaman-trip-container {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 16px;
+    max-width: 1100px;
+    margin: 40px auto;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.andaman-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.andaman-intro,
+.andaman-closing {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #000;
+    text-align: center;
+    margin: 10px 0 30px;
+}
+
+.andaman-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.highlight-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 260px;
+    text-align: center;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-icon {
+    font-size: 2.2rem;
+    color: #009688;
+    margin-bottom: 12px;
+}
+
+.highlight-card h3 {
+    font-size: 1.2rem;
+    color: #00796b;
+    margin-bottom: 8px;
+}
+
+.highlight-card p {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.show-more-btn {
+    margin: 20px auto;
+    display: block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0AA84E;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.show-more-btn:hover {
+    background-color: #0AA84E;
+}
+
+@media screen and (max-width: 768px) {
+    .andaman-trip-container {
+        padding: 20px;
+    }
+
+    .andaman-heading {
+        font-size: 1.8rem;
+    }
+
+    .highlight-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .highlight-icon {
+        font-size: 1.8rem;
+    }
+    
+}

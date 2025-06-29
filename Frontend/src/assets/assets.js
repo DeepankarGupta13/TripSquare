@@ -54,6 +54,10 @@ export const assets = {
     CorporateTrip: CorporateTrip
 }
 
+export const privateTrips = [
+    'Andaman and Nicobar',
+]
+
 export const coupleImages = [
     couple1,
     couple2,

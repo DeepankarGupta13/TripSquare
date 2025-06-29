@@ -1,8 +1,8 @@
 /* Base styles for larger screens */
 .private-trips-container {
-    font-family: Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 40px;
-    background-color: #f4f4f4;
+    background-color: #fff;
     max-width: 1200px; /* Limit overall width for better readability on very wide screens */
     margin: 0 auto; /* Center the container */
 }

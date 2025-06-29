@@ -22,7 +22,7 @@ export const sendConfirmationEmail = async (formData, tripType = '') => {
                     <li>User Phone Number: ${formData.phone}</li>
                     <li>Enquiry Date: ${new Date().toLocaleDateString()}</li>
                     <li>Enquiry Time: ${new Date().toLocaleTimeString()}</li>
-                    <li>Message: ${formData.message || 'Honeymoon Enquiry'}</li>
+                    <li>Message: ${formData.message || 'NaN'}</li>
                     ${formData.companyName ? `<li>Company Name: ${formData.companyName}</li>` : ''}
                     ${formData.destination ? `<li>Trip Destination: ${formData.destination}</li>` : ''}
                     ${formData.members ? `<li>Number of Members: ${formData.members}</li>` : ''}

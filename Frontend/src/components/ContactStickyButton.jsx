@@ -15,7 +15,7 @@ const WhatsAppButton = () => {
     <div className="whatsapp-button-container">
       <div className="whatsapp-button" onClick={handleClick}>
         <img src={assets.whatsappIcon} alt="WhatsApp" />
-        <span>Chat with us</span>
+        <span className='chatText'>Chat with us</span>
       </div>
     </div>
   );

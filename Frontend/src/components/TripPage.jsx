@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/TripPage.css';
 import { useNavigate } from 'react-router-dom';
 import { useApi } from '../context/ApiContext';
@@ -13,6 +13,10 @@ const TripPage = ({ filter = 'all' }) => {
     const [error, setError] = useState(null);
     const [selectedMonth, setSelectedMonth] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
+    
+    const [shouldScroll, setShouldScroll] = useState(false);
+    
+    const topRef = useRef(null);
 
     // Generate months starting from current month
     const generateMonths = () => {
@@ -137,7 +141,14 @@ const TripPage = ({ filter = 'all' }) => {
 
         setFilteredTrips(filtered);
         setCurrentPage(0);
-    }, [selectedMonth, trips]);
+        
+        if (shouldScroll) {
+            const yOffset = -80; // Adjust if you have a fixed navbar
+            const y = topRef.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            setShouldScroll(false);
+        }
+    }, [selectedMonth, trips, shouldScroll]);
 
     // Calculate total pages
     const totalPages = Math.ceil(filteredTrips.length / tripsPerPage);
@@ -157,8 +168,11 @@ const TripPage = ({ filter = 'all' }) => {
         return grouped;
     };
 
-    const handleClick = (id) => {
-        navigate(`/trip/${id}`);
+    const handleClick = (card) => {
+        if (card.price === 0 && card.duration === 'Private') {
+            navigate(`/privatetrip/${card._id}`)
+        }
+        else navigate(`/trip/${card._id}`);
     };
 
     const handleMonthSelect = (month) => {
@@ -171,10 +185,12 @@ const TripPage = ({ filter = 'all' }) => {
 
     const handlePrevPage = () => {
         setCurrentPage(prev => Math.max(0, prev - 1));
+        setShouldScroll(true);
     };
 
     const handleNextPage = () => {
         setCurrentPage(prev => Math.min(totalPages - 1, prev + 1));
+        setShouldScroll(true);
     };
 
     if (loading) {
@@ -191,6 +207,7 @@ const TripPage = ({ filter = 'all' }) => {
 
     return (
         <div className="scroller-container">
+            <div ref={topRef} style={{ height: '10px' }}></div>
             <div className="month-filter">
                 <div className="month-buttons">
                     {/* Add All button at the beginning */}
@@ -241,7 +258,7 @@ const TripPage = ({ filter = 'all' }) => {
                                 {row.map((card, cardIndex) => (
                                     <div
                                         key={cardIndex}
-                                        onClick={() => handleClick(card._id)}
+                                        onClick={() => handleClick(card)}
                                         className="travel-card"
                                     >
                                         <img src={card.pic} alt={card.name} className="card-image" />

@@ -9,6 +9,7 @@ import WeekendTrip from './page/WeekendTrip'
 import FamilyTrip from './page/FamilyTrip'
 import CorporateTrip from './page/CorporateTrip'
 import PrivateTrip from './page/PrivateTrip'
+import Private from './page/Private'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/trip/:tripId' element={<Trip/>} />
+        <Route path='/privatetrip/:tripId' element={<Private/>} />
         <Route path='/checkout' element={<Checkout/>} />
         <Route path='/honeymoon-trip' element={<HoneyMoonTrip/>} />
         <Route path='/weekend-trip' element={<WeekendTrip/>} />

@@ -10,10 +10,6 @@ const JourneyInFrames = () => {
       alt: 'Rajasthan'
     },
     {
-      url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750621533/Black_and_White_Space_Blank_Document_8_cdyxgr.png',
-      alt: 'Jaishalmer'
-    },
-    {
       url: 'https://res.cloudinary.com/dfxgnf8kz/image/upload/v1750621535/Black_and_White_Space_Blank_Document_3_y7ygu1.png',
       alt: 'Hampi'
     },
