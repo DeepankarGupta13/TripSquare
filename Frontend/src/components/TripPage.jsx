@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, use } from 'react';
 import '../styles/TripPage.css';
 import { useNavigate } from 'react-router-dom';
 import { useApi } from '../context/ApiContext';
@@ -41,6 +41,15 @@ const TripPage = ({ filter = 'all' }) => {
     const [showAllMonths, setShowAllMonths] = useState(false);
     const tripsPerPage = 9; // 3 trips per row × 3 rows
 
+    useEffect(() => {
+        if (shouldScroll) {
+            const yOffset = -80; // Adjust if you have a fixed navbar
+            const y = topRef.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            setShouldScroll(false);
+        }
+    }, [shouldScroll]);
+    
     useEffect(() => {
         const fetchTrips = async () => {
             try {
@@ -141,14 +150,7 @@ const TripPage = ({ filter = 'all' }) => {
 
         setFilteredTrips(filtered);
         setCurrentPage(0);
-        
-        if (shouldScroll) {
-            const yOffset = -80; // Adjust if you have a fixed navbar
-            const y = topRef.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-            setShouldScroll(false);
-        }
-    }, [selectedMonth, trips, shouldScroll]);
+    }, [selectedMonth, trips]);
 
     // Calculate total pages
     const totalPages = Math.ceil(filteredTrips.length / tripsPerPage);
