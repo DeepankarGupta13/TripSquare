@@ -86,7 +86,7 @@ const WhyTripSquare = () => {
   return (
     <div className="why-tripsquare-container">
       <div className="why-tripsquare-header">
-        <h1 className="why-tripsquare-title">Why Trip Square?</h1>
+        <h1 className="why-tripsquare-title"><span className="underline-image">Why Trip Square?</span></h1>
         <p className="why-tripsquare-subtitle ans">TripSquare is not just a travel service,
           It’s a smart travel companion. We help travelers find experiences tailored to their interests, time, and budget, making every journey uniquely</p>
           <p className="why-tripsquare-subtitle ans" >Magical Moments</p>

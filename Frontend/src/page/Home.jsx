@@ -10,6 +10,7 @@ import TripPage from '../components/TripPage'
 import JourneyInFrames from '../components/JourneyInFrames'
 import WhyTripSquare from '../components/WhyTripSquare '
 import ExploreSection from '../components/ExploreSection'
+import SectionDivider from '../components/SectionDivider'
 
 const Home = () => {
   return (
@@ -23,11 +24,12 @@ const Home = () => {
         <p className='Description-text-big'>Pack Your Bags & Your Dreams! TripSquare Makes Travel Affordable & Amazing</p>
       </div>
       <div className='span'>
-        <p className='Title-text black-text'>Top Destinations</p>
+        <p className='Title-text black-text'> <span className="underline-image">Top Destinations</span> </p>
       </div>
       <TripPage />
       <DestinationSlider/>
       <ExploreSection />
+      <SectionDivider />
       <WhyTripSquare />
       <AdventurePoster/>
       <JourneyInFrames />

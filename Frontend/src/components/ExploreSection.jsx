@@ -95,7 +95,7 @@ function ExploreSection() {
   return (
     <div className="explore-section-wrapper">
       {/* Section Title */}
-      <h2 className="section-title">Explore</h2>
+      <h2 className="section-title"><span className="underline-image">Explore</span></h2>
 
       {/* Slider Container */}
       <div className="slider-container-explore">

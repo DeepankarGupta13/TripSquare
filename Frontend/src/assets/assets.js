@@ -24,6 +24,7 @@ import house from './House.png';
 import Guide from './Guide.png';
 import Travel from './travel.png';
 import visa from './visa.png';
+import sectionDivider from './Mountain.png';
 
 export const assets = {
     camera: camera,
@@ -51,7 +52,8 @@ export const assets = {
     privateTrip: privateTrip,
     WeekendTripCover: WeekendTripCover,
     longWeekTrip: longWeekTrip,
-    CorporateTrip: CorporateTrip
+    CorporateTrip: CorporateTrip,
+    sectionDivider: sectionDivider,
 }
 
 export const privateTrips = [

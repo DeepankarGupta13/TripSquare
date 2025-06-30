@@ -82,7 +82,7 @@ const DestinationSlider = () => {
 
   return (
     <div className="destination-slider-container">
-      <h2 className="section-title">Seasonal Trip</h2>
+      <h2 className="section-title"><span className="underline-image">Seasonal Trip</span></h2>
       <div className="slider-controls">
         <button className="nav-button prev" onClick={scrollLeft}>
           &lt;

@@ -108,7 +108,7 @@ const JourneyInFrames = () => {
     <div className="slider-container">
 
       <div className="slider-header">
-        <h1 className="slider-title">FRAMING MEMORIES</h1>
+        <h1 className="slider-title"><span className="underline-image">FRAMING MEMORIES</span></h1>
         <p className="slider-subtitle">Frames</p>
       </div>
 
