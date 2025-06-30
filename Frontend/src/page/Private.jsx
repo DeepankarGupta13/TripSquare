@@ -10,6 +10,7 @@ import Gallery from '../components/Gallery';
 import PrivateTripForm from '../components/PrivateTripForm';
 import AboutPrivateTrips from '../components/AboutPrivateTrip';
 import WhyTripSquare from '../components/WhyTripSquare ';
+import SectionDivider from '../components/SectionDivider';
 
 const Private = () => {
   const { tripId } = useParams();
@@ -87,8 +88,8 @@ const Private = () => {
       <ImageScreen path={tripData.images[8]} />
       <Navbar />
       <div className='honeymoon-banner'>
-        <p className='Heading-Title' > Andaman and Nicobar </p>
-        <p className='Description-text descriptio-private-text' style={{margin: '0px 30px', marginTop: '30px' }}>A private trip to Andaman & Nicobar Islands offers serene beaches, crystal-clear waters, and unmatched privacy. Enjoy exclusive island tours, water sports, and romantic seaside moments at your own pace. With TripSquare, your tropical escape becomes effortless, luxurious, and truly unforgettable.</p>
+        <p className='Heading-Title' > {tripData.name} </p>
+        <p className='Description-text descriptio-private-text' style={{margin: '0px 30px', marginTop: '30px' }}>{tripData.description}</p>
         <div style={{ height: '0px' }}> </div>
         <button onClick={() => window.open(`https://wa.me/${assets.phoneNumber}?text=Hello, I Want to Book a Private Trip`, '_blank')} className="book-now-btn">Book Now</button>
       </div>
@@ -96,6 +97,7 @@ const Private = () => {
       <PrivateTripForm destination={tripData.name}/>
       <WhyTripSquare />
       <Gallery galleryImages={tripData.images}/>
+      <SectionDivider />
       <Footer />
     </div>
   )
