@@ -114,7 +114,7 @@ const TripPage = ({ filter = 'all' }) => {
                 }
             }
 
-            const orderedTrip = []
+            let orderedTrip = []
             monthPlaces.forEach(place => {
                 // Check if any of the month places is included in the place name (case insensitive)
                 return trips.some(trip => {
@@ -130,6 +130,20 @@ const TripPage = ({ filter = 'all' }) => {
                     orderedTrip.push(trip);
                 }
             });
+            
+            // Find all trips with duration === 'Private'
+            const privateTrips = orderedTrip.filter(trip => trip.duration.toLowerCase() === 'private');
+
+            // Remove all private trips from original array
+            const cleanedTripList = orderedTrip.filter(trip => trip.duration.toLowerCase() !== 'private');
+
+            // Insert private trips starting from index 9
+            const insertIndex = 9;
+            privateTrips.forEach((privateTrip, i) => {
+                cleanedTripList.splice(insertIndex + i, 0, privateTrip);
+            });
+
+            orderedTrip = cleanedTripList; // Use this for further rendering
 
             filtered = orderedTrip;
         }
@@ -266,7 +280,7 @@ const TripPage = ({ filter = 'all' }) => {
                                         <img src={card.pic} alt={card.name} className="card-image" />
                                         <div className="card-overlay">
                                             <h3 className="card-title">{card.name}</h3>
-                                            <p className="card-duration">Duration: {card.duration}</p>
+                                            { card.duration.toLowerCase() == 'private' ? <p className="card-duration"> {card.duration} </p> : <p className="card-duration"> Duration: {card.duration}</p>}
                                             <button className="book-button">Book</button>
                                         </div>
                                     </div>
